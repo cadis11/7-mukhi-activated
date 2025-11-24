@@ -1,167 +1,584 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>7 Mukhi Activated Rudraksha — Authentic Nepal • Rudraksha-Pasal</title>
 
-  <title>7 Mukhi Activated Rudraksha | Authentic Nepal Bead</title>
+  <meta name="description" content="Authentic Nepal-origin 7 Mukhi Rudraksha. Fully activated by Siddhi master — 3.6M mantra siddhi and 200K activations over 54 days. Price: NPR 23,700. X-ray verified. Worldwide shipping from Pokhara." />
 
-  <meta name="description" content="Authentic Nepal 7 Mukhi Activated Rudraksha. Fully energized by Siddhi master over 54 days. Genuine Nepal bead, X-ray verified. Price: NPR 23,700 (≈ USD 178 ≈ INR 14,500).">
-
+  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <!-- ======= STYLES ======= -->
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+    :root{
+      --bg:#0d0d0f;
+      --card: rgba(255,255,255,0.04);
+      --muted:#9ca3af;
+      --accent:#f59e0b;
+      --accent-2:#fbbf24;
+      --success:#22c55e;
+      --glass-border: rgba(255,255,255,0.08);
+      --max-width: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:linear-gradient(180deg,#070707 0%, #0f0f10 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .site {
+      max-width:var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
     }
 
-    header {
-      padding: 18px 0;
-      text-align: center;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+    header.topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 0;
+      position:sticky;
+      top:0;
+      z-index:60;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .brand{font-weight:700; letter-spacing:0.4px}
+    .lang-switch{
+      display:flex;
+      gap:8px;
+    }
+    .lang-btn{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+    }
+    .lang-btn.active{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#000;
+      border: none;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      color: #facc15;
+    /* main product area */
+    .product {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      margin-top:18px;
+      align-items:start;
     }
 
-    .hero-img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-      border-radius: 15px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    /* image + slider */
+    .gallery {
+      background:var(--card);
+      border-radius:14px;
+      padding:18px;
+      border:1px solid var(--glass-border);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
     }
 
-    .highlight-box {
-      background: rgba(255,255,255,0.06);
-      padding: 16px;
-      border-radius: 12px;
-      line-height: 1.7;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.12);
-      margin-bottom: 25px;
-      font-size: 1.05rem;
+    .slider {
+      width:100%;
+      max-width:740px;
+      position:relative;
+      overflow:hidden;
+      border-radius:12px;
     }
 
-    .price {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #facc15;
-      margin-bottom: 8px;
+    .slides{
+      display:flex;
+      transition:transform .35s ease;
+      touch-action:pan-y;
+    }
+    .slides img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:cover;
+      border-radius:8px;
+      user-select:none;
+      -webkit-user-drag:none;
     }
 
-    .sub-price {
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.8;
-      margin-bottom: 20px;
+    .thumbs{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .thumbs button{
+      width:62px;height:62px;border-radius:8px;border:1px solid rgba(255,255,255,0.04); padding:0; overflow:hidden; background:transparent; cursor:pointer;
+    }
+    .thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .nav-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      border:1px solid rgba(255,255,255,0.04);
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index:30;
+    }
+    .nav-arrow.left{left:10px}
+    .nav-arrow.right{right:10px}
+    .nav-arrow svg{width:18px;height:18px;fill:#fff;opacity:0.9}
+
+    /* product card */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:20px;
+      border:1px solid var(--glass-border);
+      position:relative;
+    }
+    .badge-float{
+      position:absolute;
+      right:-18px;
+      top:-18px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#000;
+      padding:8px 14px;
+      font-weight:700;
+      border-radius:12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      transform:rotate(-6deg);
+    }
+    .title{ font-size:1.2rem; font-weight:700; color:#fff; margin-bottom:6px }
+    .subtitle{ color:var(--muted); font-size:13px; margin-bottom:16px }
+
+    .price{
+      font-size:2rem;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+    .price-sub{ color:var(--muted); font-size:13px; margin-bottom:14px }
+
+    .meta-list{ display:grid; gap:10px; margin-bottom:18px }
+    .meta-item{ font-size:14px; color:#e6e6e6; display:flex; gap:10px; align-items:flex-start }
+    .meta-item .dot{ width:8px;height:8px;border-radius:50%; background:var(--accent); margin-top:6px; flex-shrink:0 }
+
+    .buy-cta{
+      display:block;
+      width:100%;
+      padding:14px;
+      text-align:center;
+      font-weight:800;
+      font-size:16px;
+      color:#000;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius:10px;
+      text-decoration:none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
     }
 
-    .cta {
-      display: block;
-      width: 90%;
-      max-width: 350px;
-      margin: 30px auto;
-      padding: 15px;
-      background: #22c55e;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: black;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: 0.2s;
+    /* info sections */
+    .info {
+      margin-top:22px;
+      display:grid;
+      gap:12px;
+    }
+    .info h3{ margin:0; font-size:1rem; color:#fff; font-weight:700 }
+    .info p{ margin:6px 0 0 0; color:var(--muted); font-size:14px }
+
+    .features{
+      display:grid;
+      gap:8px;
+      margin-top:10px;
+    }
+    .feature{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      background:rgba(255,255,255,0.02);
+      padding:10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.02);
+      color:#eaeaea;
+      font-size:14px;
     }
 
-    .cta:hover {
-      background: #4ade80;
-      transform: translateY(-2px);
+    .divider{ height:1px; background:rgba(255,255,255,0.03); margin:14px 0; border-radius:2px }
+
+    /* sticky bottom buy button (mobile) */
+    .sticky-buy {
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:14px;
+      z-index:80;
+      display:none;
+    }
+    .sticky-buy a{
+      display:block;
+      padding:14px;
+      text-align:center;
+      font-weight:800;
+      border-radius:12px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#000;
+      text-decoration:none;
+      box-shadow:0 10px 30px rgba(0,0,0,0.45);
     }
 
-    .footer {
-      text-align: center;
-      padding: 40px 0 30px;
-      font-size: 0.9rem;
-      opacity: 0.6;
+    /* footer */
+    footer{ text-align:center; color:var(--muted); padding:36px 0 80px; font-size:14px }
+
+    /* responsive */
+    @media (max-width:980px){
+      .product{ grid-template-columns:1fr; }
+      .card{ order:2 }
+      .gallery{ order:1 }
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.7rem;
-      }
-      .highlight-box {
-        font-size: 0.92rem;
-        padding: 14px;
-      }
-      .price {
-        font-size: 1.8rem;
-      }
-      .cta {
-        font-size: 1.05rem;
-        padding: 13px;
-      }
+    @media (max-width:720px){
+      .nav-arrow{ width:38px;height:38px }
+      .nav-arrow svg{ width:16px;height:16px }
+      .thumbs button{ width:54px;height:54px }
+      .sticky-buy{ display:block; }
     }
   </style>
-</head>
 
+  <!-- ======= RICH PRODUCT JSON-LD (will be updated by script) ======= -->
+  <script id="product-jsonld" type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"7 Mukhi Activated Rudraksha",
+    "image":["https://cdn.sanity.io/images/6movhm4l/production/a594a263b46158fba2a7b02084137c5f115a863e-1536x1152.jpg"],
+    "description":"Authentic Nepal-origin 7 Mukhi Rudraksha activated by Siddhi master with 3.6M mantra siddhi and 200,000 activations over 54 days. X-ray verified. Includes puja activation video.",
+    "sku":"7-MUKHI-ACTIVATED",
+    "brand":{"@type":"Brand","name":"Rudraksha-Pasal"},
+    "offers": {
+      "@type":"Offer",
+      "url":"https://rudrakshapasal.com",
+      "price":"23700",
+      "priceCurrency":"NPR",
+      "availability":"https://schema.org/LimitedAvailability"
+    }
+  }
+  </script>
+</head>
 <body>
 
-<header>
-  Rudraksha-Pasal • Authentic Nepal Rudrakshyas
-</header>
+  <div class="site">
+    <!-- top -->
+    <header class="topbar" role="banner">
+      <div class="brand">Rudraksha-Pasal</div>
 
-<div class="container">
+      <div class="lang-switch" role="tablist" aria-label="Language switch">
+        <button id="btn-en" class="lang-btn active" aria-pressed="true">EN</button>
+        <button id="btn-np" class="lang-btn" aria-pressed="false">ने</button>
+      </div>
+    </header>
 
-  <h1>7 Mukhi Activated Rudraksha</h1>
+    <!-- product -->
+    <main class="product" role="main">
 
-  <img src="https://cdn.sanity.io/images/6movhm4l/production/a594a263b46158fba2a7b02084137c5f115a863e-1536x1152.jpg"
-       alt="7 Mukhi Activated Rudraksha Nepal"
-       class="hero-img">
+      <!-- gallery -->
+      <section class="gallery" aria-label="Product gallery">
+        <div class="slider" id="slider">
+          <div class="slides" id="slides">
+            <!-- Slides will be injected by JS -->
+          </div>
 
-  <div class="highlight-box">
-    This is an <strong>authentic Nepal-origin Rudraksha</strong> — not Indonesian, not mixed, not mass-market grade.<br><br>
-    Fully <strong>activated over 54 days</strong> by a Siddhi master with <strong>200,000 chants</strong> dedicated to this bead.
+          <button class="nav-arrow left" id="prev" aria-label="Previous image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+          </button>
+          <button class="nav-arrow right" id="next" aria-label="Next image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </button>
+        </div>
+
+        <div class="thumbs" id="thumbs" aria-hidden="false">
+          <!-- thumbs injected -->
+        </div>
+      </section>
+
+      <!-- product card -->
+      <aside class="card" aria-labelledby="product-title">
+        <div class="badge-float" id="auth-badge">Authentic Nepal Bead</div>
+
+        <div class="title" id="product-title">7 Mukhi Activated Rudraksha</div>
+        <div class="subtitle" data-i18n="subtitle">Wealth • Prosperity • Divine Flow</div>
+
+        <div class="price" id="price">NPR 23,700</div>
+        <div class="price-sub" id="price-sub">≈ USD 178 • ≈ INR 14,500</div>
+
+        <div class="meta-list">
+          <div class="meta-item"><span class="dot"></span> <span data-i18n="origin">100% Nepal-origin. X-ray verified.</span></div>
+          <div class="meta-item"><span class="dot"></span> <span data-i18n="activation">Fully activated — 54 days, 200,000 dedicated chants for this bead.</span></div>
+          <div class="meta-item"><span class="dot"></span> <span data-i18n="shipping">Worldwide shipping from Pokhara. Tracking included.</span></div>
+        </div>
+
+        <a id="buy-now" class="buy-cta" href="https://wa.me/9779823783486?text=Namaste!%20I%20want%20to%20buy%20the%207%20Mukhi%20Activated%20Rudraksha%20(NPR%2023700)" target="_blank" rel="noopener">
+          <span data-i18n="buy">Buy via WhatsApp</span>
+        </a>
+
+        <div class="divider" role="separator"></div>
+
+        <div class="info">
+          <div>
+            <h3 data-i18n="about_title">About this bead</h3>
+            <p data-i18n="about_text">
+              <!-- english text injected by JS -->
+            </p>
+          </div>
+
+          <div>
+            <h3 data-i18n="activation_title">Activation details</h3>
+            <p data-i18n="activation_text">
+              <!-- english text injected by JS -->
+            </p>
+          </div>
+
+          <div>
+            <h3 data-i18n="what_it_helps_title">What this supports</h3>
+            <div class="features" id="benefits">
+              <!-- benefits injected -->
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <div class="sticky-buy" id="sticky">
+      <a href="https://wa.me/9779823783486?text=Namaste!%20I%20want%20to%20buy%20the%207%20Mukhi%20Activated%20Rudraksha%20(NPR%2023700)" target="_blank" rel="noopener">
+        Buy Now — NPR 23,700
+      </a>
+    </div>
+
+    <footer>
+      © 2025 Rudraksha-Pasal • Hand-activated in Pokhara, Nepal • X-ray & Puja activation video included
+    </footer>
   </div>
 
-  <div class="price">NPR 23,700</div>
+  <!-- ======= SCRIPTS: slider, i18n, JSON-LD update ======= -->
+  <script>
+    /***** ========== IMAGE PLACEHOLDERS ========== *****
+     * Replace the placeholder URLs in `imageUrls` with your uploaded image URLs.
+     * Keep the same order: main image, close-up, side-angle, etc.
+     ***************************************************/
+    const imageUrls = [
+      // Default working image (from your earlier code). Replace or keep.
+      "https://cdn.sanity.io/images/6movhm4l/production/a594a263b46158fba2a7b02084137c5f115a863e-1536x1152.jpg",
+      // Placeholder images (replace with your own uploaded images)
+      "https://via.placeholder.com/1536x1152.png?text=Replace+with+your+image+1",
+      "https://via.placeholder.com/1536x1152.png?text=Replace+with+your+image+2"
+    ];
 
-  <div class="sub-price">
-    ≈ USD 178<br>
-    ≈ INR 14,500
-  </div>
+    // ---- Inject slides + thumbs
+    const slidesEl = document.getElementById('slides');
+    const thumbsEl = document.getElementById('thumbs');
 
-  <a class="cta" href="https://wa.me/9779823783486?text=Namaste!%20I%20want%20to%20buy%20the%207%20Mukhi%20Activated%20Rudraksha%20(NPR%2023700)"
-     target="_blank">
-    Buy via WhatsApp
-  </a>
+    imageUrls.forEach((src, i) => {
+      const slideWrap = document.createElement('div');
+      slideWrap.style.minWidth = '100%';
+      slideWrap.style.flexShrink = '0';
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `7 Mukhi Rudraksha image ${i+1}`;
+      img.loading = 'lazy';
+      slideWrap.appendChild(img);
+      slidesEl.appendChild(slideWrap);
 
-</div>
+      const tb = document.createElement('button');
+      tb.title = `View image ${i+1}`;
+      tb.addEventListener('click', () => goTo(i));
+      const tImg = document.createElement('img');
+      tImg.src = src;
+      tImg.alt = '';
+      tb.appendChild(tImg);
+      thumbsEl.appendChild(tb);
+    });
 
-<div class="footer">
-  © 2025 Rudraksha-Pasal • Pokhara, Nepal
-</div>
+    // slider logic
+    let current = 0;
+    const total = imageUrls.length;
+    const slidesNode = slidesEl;
+    const update = () => {
+      slidesNode.style.transform = `translateX(-${current * 100}%)`;
+      // update aria or active thumb states if desired
+    };
+    function goTo(i){
+      current = (i + total) % total;
+      update();
+    }
+    document.getElementById('prev').addEventListener('click', ()=>{ goTo((current-1+total)%total);});
+    document.getElementById('next').addEventListener('click', ()=>{ goTo((current+1)%total);});
 
+    // touch swipe for mobile
+    (function addSwipe(){
+      let startX=0, deltaX=0, isDown=false;
+      const slider = document.getElementById('slider');
+      slider.addEventListener('pointerdown', (e)=>{ isDown=true; startX=e.clientX; slider.setPointerCapture(e.pointerId);});
+      slider.addEventListener('pointermove', (e)=>{ if(!isDown) return; deltaX = e.clientX - startX; });
+      slider.addEventListener('pointerup', (e)=>{ isDown=false; if(Math.abs(deltaX) > 40){ if(deltaX < 0) goTo(current+1); else goTo(current-1);} deltaX=0; });
+      slider.addEventListener('pointercancel', ()=>{ isDown=false; deltaX=0; });
+    })();
+
+    // auto-rotate (optional) -- comment out to disable
+    // setInterval(()=>{ goTo(current+1); }, 6000);
+
+    /***** ========== I18N STRINGS (EN / NP) ========== *****/
+    const i18n = {
+      en: {
+        subtitle: "Wealth • Prosperity • Divine Flow",
+        origin: "100% Nepal-origin. X-ray verified.",
+        activation: "Fully activated — 54 days, 200,000 dedicated chants for this bead.",
+        shipping: "Worldwide shipping from Pokhara. Tracking included.",
+        buy: "Buy via WhatsApp",
+        about_title: "About this bead",
+        about_text: "This 7 Mukhi Rudraksha is a high-grade Nepal origin bead hand-selected and X-ray verified. It has been specially prepared and activated for maximum efficacy. Perfect for wear as a pendant or bracelet.",
+        activation_title: "Activation & Siddhi details",
+        activation_text: "The bead received a rigorous activation ritual: 3,600,000 Mahamrityunjaya mantra chants in the Siddhi master's lifetime, with 200,000 dedicated chants and 54 continuous days specifically for this bead. Includes puja activation video and X-ray authenticity report.",
+        what_it_helps_title: "What this supports",
+        benefits: [
+          "Wealth & financial stability",
+          "Career progress and better opportunities",
+          "Protection against negative influences",
+          "Improved focus, discipline and leadership",
+          "Support during challenging planetary periods"
+        ]
+      },
+      np: {
+        subtitle: "समृद्धि • ऐश्वर्य • आत्मिक प्रवाह",
+        origin: "१००% नेपालको मूल । एक्स-रे प्रमाणित।",
+        activation: "पूर्ण सक्रिय — ५४ दिन, विशेष रूपमा २००,००० मन्त्रोच्चारण।",
+        shipping: "पोखराबाट विश्वव्यापी शिपिङ्। ट्र्याकिङ समावेश।",
+        buy: "वाट्सएपबाट किन्नुहोस्",
+        about_title: "यो मणि सम्बन्धी",
+        about_text: "यो ७ मुखी रुद्राक्ष नेपाल मुलका उच्चतम गुणस्तरको मोती हो। ध्यानपूर्वक छानेर एक्स-रेमार्फत प्रमाणित गरियो। यो मणि विशेष रूपमा सक्रिय गरिएको छ र लगाउने गर्दाचाहिँ प्रभावकारी मानिन्छ।",
+        activation_title: "सक्रियकरण र सिद्धि विवरण",
+        activation_text: "यस मणिमा ३,६००,००० महामृत्युन्जय मन्त्र सिद्धि र यसै मणिका लागि ५४ दिनमा २००,००० समर्पित मन्त्रोच्चारण गरियो। पूजा सक्रियकरण भिडियो र एक्स-रे प्रमाण पत्र समावेश छ।",
+        what_it_helps_title: "यसले के सहयोग गर्छ",
+        benefits: [
+          "धनसम्पत्ति र आर्थिक स्थिरता",
+          "काममा प्रगति र अवसरहरू",
+          "नकारात्मक प्रभावहरूबाट सुरक्षा",
+          "एकाग्रता, अनुशासन र नेतृत्व क्षमता बढाउने",
+          "ग्रहप्रभावसंग जुध्न सहयोग"
+        ]
+      }
+    };
+
+    // Helper: render i18n into DOM
+    function renderLang(lang){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if(i18n[lang][key] !== undefined){
+          el.textContent = i18n[lang][key];
+        }
+      });
+
+      // sections with larger blocks
+      document.querySelectorAll('[data-i18n]').forEach(() => {}); // noop to be safe
+
+      document.querySelectorAll('#product-title').forEach(el=>{
+        el.textContent = (lang === 'en') ? "7 Mukhi Activated Rudraksha" : "७ मुखी सक्रिय रुद्राक्ष";
+      });
+
+      // About / Activation paragraphs
+      document.querySelector('[data-i18n="about_text"]').textContent = i18n[lang].about_text;
+      document.querySelector('[data-i18n="activation_text"]').textContent = i18n[lang].activation_text;
+      document.querySelector('[data-i18n="what_it_helps_title"]').textContent = i18n[lang].what_it_helps_title;
+      // benefits list
+      const benefitsEl = document.getElementById('benefits');
+      benefitsEl.innerHTML = '';
+      i18n[lang].benefits.forEach(text=>{
+        const div = document.createElement('div');
+        div.className = 'feature';
+        div.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M9 11.5l2 2 4-4" stroke="${'#f59e0b'}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><div>${text}</div>`;
+        benefitsEl.appendChild(div);
+      });
+
+      // buy button text
+      document.querySelectorAll('[data-i18n="buy"]').forEach(el=>{
+        el.textContent = i18n[lang].buy;
+      });
+
+      // subtitle and meta lines
+      document.querySelectorAll('.subtitle').forEach(el=>{
+        el.textContent = i18n[lang].subtitle;
+      });
+      document.querySelectorAll('[data-i18n="origin"]').forEach(el=> el.textContent = i18n[lang].origin );
+      document.querySelectorAll('[data-i18n="activation"]').forEach(el=> el.textContent = i18n[lang].activation );
+      document.querySelectorAll('[data-i18n="shipping"]').forEach(el=> el.textContent = i18n[lang].shipping );
+    }
+
+    // init language control
+    const enBtn = document.getElementById('btn-en');
+    const npBtn = document.getElementById('btn-np');
+    function setActive(btn){
+      [enBtn,npBtn].forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      enBtn.setAttribute('aria-pressed', enBtn === btn ? "true" : "false");
+      npBtn.setAttribute('aria-pressed', npBtn === btn ? "true" : "false");
+    }
+    enBtn.addEventListener('click', ()=>{ renderLang('en'); setActive(enBtn); });
+    npBtn.addEventListener('click', ()=>{ renderLang('np'); setActive(npBtn); });
+
+    // initial render english
+    renderLang('en');
+
+    /***** ======= update JSON-LD dynamically with current image list ======= *****/
+    (function updateJsonLd(){
+      try{
+        const jsonEl = document.getElementById('product-jsonld');
+        const obj = JSON.parse(jsonEl.textContent);
+        obj.image = imageUrls;
+        obj.offers.price = "23700";
+        obj.offers.priceCurrency = "NPR";
+        jsonEl.textContent = JSON.stringify(obj, null, 2);
+      }catch(e){
+        // ignore
+      }
+    })();
+
+    // Accessibility: keyboard arrows for slider
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowLeft') document.getElementById('prev').click();
+      if(e.key === 'ArrowRight') document.getElementById('next').click();
+    });
+
+    // Ensure thumbs navigation sets correct slide on load
+    function goTo(i){
+      currentIdx = ((i % totalImages) + totalImages) % totalImages;
+      slidesEl.style.transform = `translateX(-${currentIdx * 100}%)`;
+    }
+
+    // small fix variables used above
+    let currentIdx = 0;
+    const totalImages = imageUrls.length;
+    // ensure global function used by thumbs exists
+    window.goTo = goTo;
+    // set initial transform
+    slidesEl.style.transform = 'translateX(0%)';
+  </script>
 </body>
 </html>
