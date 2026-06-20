@@ -7,176 +7,37 @@
 <meta name="description" content="Nepal-certified Rudraksha — 3 Mukhi, 7 Mukhi and more — consecrated through Tantric & Vedic ritual. Free shipping within Nepal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<style>
-:root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0D0A06;--brown:#2C1F0E;--cream:#F5EEE0;--text:#E2D5BB;--text-dim:#B0A080;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--deep);color:var(--text);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.3;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:linear-gradient(to bottom,rgba(13,10,6,0.97),transparent);backdrop-filter:blur(4px);}
-.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
-.nav-logo-main{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--gold);}
-.nav-logo-sub{font-size:0.7rem;letter-spacing:0.15em;color:var(--text-dim);font-style:italic;margin-top:0.1rem;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--text-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
-.nav-right{display:flex;gap:0.8rem;align-items:center;}
-.btn-insta-sm{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;color:#fff;background:linear-gradient(135deg,#E1306C,#833AB4);padding:0.55rem 1.1rem;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:0.4rem;transition:opacity 0.3s;}
-.btn-wa-sm{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.1em;color:#fff;background:#25D366;padding:0.55rem 1.1rem;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:0.4rem;transition:opacity 0.3s;}
-.btn-insta-sm:hover,.btn-wa-sm:hover{opacity:0.85;}
-
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,168,76,0.07) 0%,transparent 70%),var(--deep);}
-.mandala-bg{position:absolute;width:950px;height:950px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.05;animation:rotateSlow 90s linear infinite;}
-@keyframes rotateSlow{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
-.hero-content{text-align:center;position:relative;z-index:2;padding:0 2rem;animation:fadeUp 1.4s ease forwards;opacity:0;transform:translateY(30px);}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-.hero-eyebrow{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.42em;color:var(--gold);text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1rem;}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:0.4;}
-.brand-name{font-family:'Cinzel',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:600;color:var(--gold);letter-spacing:0.12em;line-height:1;margin-bottom:0.3rem;}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4.2rem);font-weight:300;line-height:1.15;color:var(--cream);font-style:italic;margin-bottom:0.3rem;}
-.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-dim);margin:1.8rem auto 2.5rem;max-width:580px;line-height:1.85;}
-.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.btn-primary{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);background:var(--gold);padding:1rem 2.5rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;transition:background 0.3s,transform 0.2s;}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
-.btn-secondary{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);background:transparent;padding:1rem 2rem;text-decoration:none;border:1px solid rgba(201,168,76,0.35);display:inline-flex;align-items:center;transition:border-color 0.3s,color 0.3s;}
-.btn-secondary:hover{border-color:var(--gold);color:var(--gold-light);}
-.btn-whatsapp{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:#25D366;padding:1rem 2rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;transition:opacity 0.3s,transform 0.2s;}
-.btn-whatsapp:hover{opacity:0.88;transform:translateY(-2px);}
-.btn-instagram{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);padding:1rem 2rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;transition:opacity 0.3s,transform 0.2s;}
-.btn-instagram:hover{opacity:0.88;transform:translateY(-2px);}
-.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.6rem;opacity:0.35;animation:bounceScroll 2.5s ease-in-out infinite;}
-.hero-scroll span{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;}
-.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);}
-@keyframes bounceScroll{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
-
-/* TRUST BAR */
-.trust-bar{background:rgba(201,168,76,0.03);border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);padding:3rem 4rem;display:flex;justify-content:center;gap:5rem;flex-wrap:wrap;}
-.trust-item{text-align:center;}
-.trust-number{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);display:block;line-height:1;}
-.trust-label{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;margin-top:0.5rem;display:block;}
-
-/* FEATURED PRODUCTS */
-#featured{padding:8rem 4rem;max-width:1200px;margin:0 auto;}
-.section-label{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
-.section-label::after{content:'';display:block;width:30px;height:1px;background:var(--gold);opacity:0.35;}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:2rem;}
-h2 em{font-style:italic;color:var(--gold-light);}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
-.product-card{border:1px solid rgba(201,168,76,0.1);background:rgba(26,21,16,0.6);overflow:hidden;transition:border-color 0.3s,transform 0.3s;cursor:pointer;text-decoration:none;display:block;}
-.product-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-6px);}
-.product-img{width:100%;aspect-ratio:1;background:rgba(201,168,76,0.04);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.product-img-placeholder{font-size:4rem;opacity:0.25;}
-.product-img img{width:100%;height:100%;object-fit:cover;}
-.product-info{padding:1.5rem;}
-.product-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);margin-bottom:0.3rem;}
-.product-mukhi{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;display:block;}
-.product-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold-light);font-weight:300;}
-.product-card-btn{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-top:1rem;display:inline-flex;align-items:center;gap:0.4rem;}
-
-/* STORY TEASER */
-#story-teaser{padding:8rem 4rem;max-width:100%;background:linear-gradient(180deg,var(--deep) 0%,rgba(44,31,14,0.4) 50%,var(--deep) 100%);}
-#story-teaser>*{max-width:1200px;margin-left:auto;margin-right:auto;}
-.story-split{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-.story-visual{display:flex;align-items:center;justify-content:center;}
-.bead-diagram{width:320px;height:320px;position:relative;}
-.bead-outer-ring{position:absolute;inset:0;border:1px solid rgba(201,168,76,0.12);border-radius:50%;animation:rotateSlow 35s linear infinite reverse;}
-.bead-mid-ring{position:absolute;inset:28px;border:1px dashed rgba(201,168,76,0.2);border-radius:50%;animation:rotateSlow 22s linear infinite;}
-.bead-center{position:absolute;inset:68px;background:radial-gradient(circle at 35% 35%,#5A3410 0%,#1A0800 100%);border-radius:50%;box-shadow:0 0 70px rgba(201,168,76,0.12),inset 0 0 40px rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.2rem;}
-.bead-number{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1;}
-.bead-label{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;color:var(--gold);opacity:0.65;text-transform:uppercase;}
-.mukhi-line{position:absolute;top:50%;left:50%;width:115px;height:1px;background:linear-gradient(to right,rgba(201,168,76,0.45),transparent);transform-origin:0 50%;}
-.mukhi-dot{position:absolute;right:-4px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.45;}
-.story-text p{font-size:1.12rem;line-height:1.9;color:var(--text-dim);margin-bottom:1.4rem;}
-.story-text p strong{color:var(--gold-light);font-weight:400;}
-
-/* WHY US */
-#why{padding:8rem 4rem;max-width:1200px;margin:0 auto;}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem;}
-.pillar{background:rgba(26,21,16,0.85);border:1px solid rgba(201,168,76,0.07);padding:3rem 2.5rem;position:relative;transition:border-color 0.4s,transform 0.3s;overflow:hidden;}
-.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s;}
-.pillar:hover{border-color:rgba(201,168,76,0.18);transform:translateY(-4px);}
-.pillar:hover::before{opacity:1;}
-.pillar-icon{font-size:1.8rem;margin-bottom:1.5rem;display:block;}
-.pillar h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:0.8rem;}
-.pillar p{font-size:0.98rem;line-height:1.85;color:var(--text-dim);}
-
-/* TESTIMONIALS */
-#testimonials{padding:8rem 4rem;max-width:1200px;margin:0 auto;}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:4rem;}
-.testimonial{border-left:1px solid rgba(201,168,76,0.18);padding-left:2rem;}
-.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;line-height:1.85;color:var(--text);margin-bottom:1.5rem;}
-.testimonial-name{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;}
-.testimonial-origin{font-size:0.82rem;color:var(--text-dim);margin-top:0.2rem;}
-
-/* CTA BANNER */
-#cta-banner{text-align:center;padding:10rem 4rem;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(201,168,76,0.06) 0%,transparent 70%),var(--deep);}
-#cta-banner>*{max-width:700px;margin-left:auto;margin-right:auto;}
-#cta-banner h2{font-size:clamp(2.5rem,5vw,4.5rem);margin-bottom:1.5rem;}
-#cta-banner p{font-size:1.1rem;line-height:1.85;color:var(--text-dim);font-style:italic;margin-bottom:2.5rem;}
-.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-
-/* INSTA STRIP */
-.insta-strip{background:rgba(201,168,76,0.03);border-top:1px solid rgba(201,168,76,0.08);padding:2rem 4rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
-.insta-strip-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--text-dim);}
-
-/* FOOTER */
-footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,168,76,0.08);flex-wrap:wrap;gap:2rem;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.22em;color:var(--gold);}
-.footer-tagline{font-size:0.88rem;color:var(--text-dim);font-style:italic;text-align:center;}
-.footer-links{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;}
-.footer-links a{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.12em;color:var(--text-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;display:inline-flex;align-items:center;gap:0.4rem;}
-.footer-links a:hover{color:var(--gold);}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:0.15s;}.d2{transition-delay:0.3s;}.d3{transition-delay:0.45s;}
-
-@media(max-width:900px){
-  nav{padding:1.2rem 1.5rem;}.nav-links{display:none;}
-  #featured,#why,#testimonials{padding:5rem 1.5rem;}
-  #story-teaser{padding:5rem 1.5rem;}
-  .story-split{grid-template-columns:1fr;gap:3rem;}
-  .story-visual{order:-1;}.bead-diagram{width:220px;height:220px;}
-  .featured-grid,.pillars,.testimonials-grid{grid-template-columns:1fr;}
-  .trust-bar{gap:3rem;padding:3rem 1.5rem;}
-  footer{flex-direction:column;text-align:center;}
-  #cta-banner{padding:5rem 1.5rem;}
-  .insta-strip{padding:2rem 1.5rem;}
-  .cta-buttons{flex-direction:column;align-items:center;}
-  #the-beads{padding:5rem 1.5rem !important;}
-  #the-beads [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;gap:3rem !important;}
-  #the-beads [style*="order:1"]{order:unset !important;}
-  #the-beads [style*="order:2"]{order:unset !important;}
-  #the-beads [style*="position:sticky"]{position:relative !important;top:auto !important;}
-}
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<!-- NAV -->
+<!-- BEGIN NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <span class="nav-logo-main">RUDRAKHCHYA</span>
     <span class="nav-logo-sub">rudrakshapasal.com</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="collection.html">Shop</a></li>
-    <li><a href="about.html">Our Story</a></li>
-    <li><a href="learn.html">Sacred Beads</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="collection.html" id="nav-shop">Shop</a></li>
+    <li><a href="about.html" id="nav-about">Our Story</a></li>
+    <li><a href="learn.html" id="nav-learn">Sacred Beads</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://wa.me/9779823783486" class="btn-wa-sm" target="_blank">
+    <a href="https://wa.me/9779823783486" class="btn-wa-sm" target="_blank" id="nav-wa">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       WhatsApp
     </a>
-    <a href="collection.html" class="btn-primary" style="padding:0.55rem 1.2rem;font-size:0.62rem;">Shop Now</a>
+    <button class="cart-nav-btn" onclick="openCart()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
   </div>
 </nav>
+<!-- END NAV -->
+
 
 <!-- HERO -->
 <div id="hero">
@@ -207,7 +68,6 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
       <a href="collection.html" class="btn-primary">View Collection ✦</a>
       <a href="about.html" class="btn-secondary">Our Story</a>
       <a href="https://wa.me/9779823783486?text=Namaste%2C%20I%20am%20interested%20in%20a%20Rudraksha." class="btn-whatsapp" target="_blank">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Ask on WhatsApp
       </a>
     </div>
@@ -228,7 +88,6 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
   <div class="section-label reveal">Sacred Collection</div>
   <h2 class="reveal">Our <em>Sacred Beads</em></h2>
   <div class="featured-grid" id="featuredGrid">
-    <!-- Static placeholders shown before Supabase loads -->
     <div class="product-card reveal">
       <div class="product-img"><span class="product-img-placeholder">🪬</span></div>
       <div class="product-info">
@@ -328,161 +187,6 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
   </div>
 </section>
 
-<!-- THE BEADS — Legends & Descriptions -->
-<style>
-.bead-entry{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:6rem;}
-.bead-entry-info{border:1px solid rgba(201,168,76,0.12);padding:2.5rem;background:rgba(20,15,8,0.8);}
-.bead-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:1.8rem 0;}
-.bead-stat{text-align:center;padding:0.9rem 0.5rem;border:1px solid rgba(201,168,76,0.1);background:rgba(201,168,76,0.02);}
-.bead-stat-val{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold);display:block;line-height:1.2;}
-.bead-stat-lbl{font-family:'Cinzel',serif;font-size:0.44rem;letter-spacing:0.15em;color:var(--text-dim);text-transform:uppercase;margin-top:0.25rem;display:block;}
-.bead-for-list{list-style:none;margin:0.8rem 0 1.8rem;}
-.bead-for-list li{font-size:0.95rem;color:var(--text);padding:0.5rem 0;border-bottom:1px solid rgba(201,168,76,0.07);line-height:1.5;}
-.bead-legend{border-left:2px solid rgba(201,168,76,0.3);padding:1.5rem 2rem;background:rgba(201,168,76,0.025);margin-top:2rem;}
-.bead-legend-label{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:0.9rem;}
-.bead-legend p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;line-height:2;color:var(--cream);}
-.bead-divider{display:flex;align-items:center;gap:2rem;margin:0 0 6rem;}
-.bead-divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.18),transparent);}
-.bead-divider-symbol{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:rgba(201,168,76,0.28);}
-@media(max-width:900px){.bead-entry{grid-template-columns:1fr;gap:2.5rem;}}
-</style>
-<div id="the-beads" style="padding:8rem 4rem;max-width:100%;background:linear-gradient(180deg,var(--deep) 0%,rgba(44,31,14,0.28) 50%,var(--deep) 100%);">
-<div style="max-width:1200px;margin:0 auto;">
-  <div style="text-align:center;margin-bottom:5rem;" class="reveal">
-    <div class="section-label" style="justify-content:center">Ancient & Sacred</div>
-    <h2>The Beads We <em>Consecrate</em></h2>
-    <p style="font-size:1.05rem;color:var(--text);max-width:560px;margin:1.5rem auto 0;line-height:1.85;font-style:italic;">Each mukhi carries its own myth, its own deity, its own purpose. These are not symbols — they are living traditions, thousands of years old.</p>
-  </div>
-
-  <!-- 3 MUKHI -->
-  <div class="bead-entry reveal">
-    <div>
-      <div class="section-label">3 Mukhi · The Holy Trinity · Mars</div>
-      <h2 style="font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1.5rem;">The Trinity That<br><em>Frees the Soul</em></h2>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.2rem;">The 3 Mukhi Rudraksha embodies the <strong style="color:var(--gold-light);font-weight:400;">Trimurti — Brahma, Vishnu, and Mahesh</strong> — the three divine aspects of Creation, Preservation, and Destruction. Three faces, three gods, one seed. To wear the 3 Mukhi is to carry the blessing of the entire divine order simultaneously — a completeness that very few beads can claim.</p>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.2rem;">Within the Trimurti, <strong style="color:var(--gold-light);font-weight:400;">Agni — the sacred fire</strong> — is the unifying force, present in all three acts: the fire of creation, the fire that sustains life, and the fire that dissolves what must end. It is this Agni within the 3 Mukhi that burns accumulated karma — the unseen weight that blocks progress despite sincere effort.</p>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.5rem;">Governed by <strong style="color:var(--gold-light);font-weight:400;">Mangal (Mars)</strong> — the planet of energy, courage, and will. For those feeling stuck despite effort, carrying guilt or heaviness from the past, or facing Mars afflictions in their chart — this bead brings the full force of the trinity to clear what stands in the way.</p>
-      <div class="bead-legend">
-        <div class="bead-legend-label">Ancient Legend · The Trinity's Tear</div>
-        <p>It is written that once, a great devotee prayed to all three — Brahma, Vishnu, and Shiva — asking which of the three was supreme. For a thousand years he received no answer. Then, on the final day of his thousandth year, all three appeared before him at once — and they wept together. For they had never before been asked to stand as one. Where their three tears fell upon the same earth, a single Rudraksha tree grew — and every bead upon it bore three faces. The devotee wore one and immediately understood: there is no separation between creation, preservation, and dissolution. They are one act, one breath, one grace. That is the gift of the 3 Mukhi — the end of all inner division.</p>
-      </div>
-    </div>
-    <div class="bead-entry-info">
-      <div style="text-align:center;margin-bottom:1.8rem;">
-        <div class="bead-diagram" style="width:170px;height:170px;margin:0 auto;">
-          <div class="bead-outer-ring"></div>
-          <div class="bead-mid-ring"></div>
-          <div class="bead-center">
-            <span class="bead-number" style="font-size:2.6rem;">३</span>
-            <span class="bead-label">Mukhi</span>
-          </div>
-          <div class="mukhi-line" style="transform:rotate(0deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(120deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(240deg);width:70px;"><div class="mukhi-dot"></div></div>
-        </div>
-      </div>
-      <div class="bead-stat-grid">
-        <div class="bead-stat"><span class="bead-stat-val">Trimurti</span><span class="bead-stat-lbl">Ruling Deity</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">Mangal</span><span class="bead-stat-lbl">Planet (Mars)</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">Fire</span><span class="bead-stat-lbl">Element (Agni)</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">20mm+</span><span class="bead-stat-lbl">Bead Size</span></div>
-      </div>
-      <div style="font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem;">For Those Who</div>
-      <ul class="bead-for-list">
-        <li>✦ &nbsp;Seek the blessing of the full trinity</li>
-        <li>✦ &nbsp;Feel stuck despite sincere effort</li>
-        <li>✦ &nbsp;Carry guilt, grief, or past karma</li>
-        <li>✦ &nbsp;Have Mangal dosh or weak Mars</li>
-      </ul>
-      <a href="collection.html" class="btn-primary" style="width:100%;justify-content:center;display:flex;">Receive This Bead ✦</a>
-    </div>
-  </div>
-
-  <!-- DIVIDER -->
-  <div class="bead-divider reveal">
-    <div class="bead-divider-line"></div>
-    <span class="bead-divider-symbol">✦</span>
-    <div class="bead-divider-line"></div>
-  </div>
-
-  <!-- 7 MUKHI -->
-  <div class="bead-entry reveal">
-    <div>
-      <div class="section-label">7 Mukhi · Mahalakshmi · Saturn</div>
-      <h2 style="font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1.5rem;">The Grace That<br><em>Opens the Path</em></h2>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.2rem;">The 7 Mukhi Rudraksha is ruled by <strong style="color:var(--gold-light);font-weight:400;">Maa Mahalakshmi</strong> — goddess of abundance, grace, and divine prosperity — and governed by Shani (Saturn). Seven faces representing the seven seas, the seven divine rivers, the seven rays of the sun. In the Shiva Purana, the Ananta Sarp (the cosmic serpent) presides over this bead, its boundlessness a mirror for the wealth it can bring.</p>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.2rem;">In Tantric tradition, the 7 Mukhi is connected to the <strong style="color:var(--gold-light);font-weight:400;">Saptamatrikas</strong> — the seven divine mothers. Wearing it is said to invoke all seven forms of the Goddess simultaneously, aligning the wearer's energy with the full spectrum of abundance: material, spiritual, relational, and karmic.</p>
-      <p style="font-size:1.05rem;line-height:1.95;color:var(--text);margin-bottom:1.5rem;">Especially prescribed for <strong style="color:var(--gold-light);font-weight:400;">Sade Sati, Shani dasha</strong>, and prolonged financial stagnation. Where the 3 Mukhi clears the path, the 7 Mukhi opens the door.</p>
-      <div class="bead-legend">
-        <div class="bead-legend-label">Ancient Legend · Mahalakshmi's Gift</div>
-        <p>A merchant, ruined and destitute, sat on the banks of the Ganga and wept. Mahalakshmi appeared to him as an old woman carrying a garland of Rudraksha beads. She placed a single bead — seven-faced — in his palm and said: "This is not wealth. This is the door through which wealth flows. But first, your heart must be worthy of it." The merchant performed penance for seven days wearing the bead. On the seventh dawn his fortunes reversed entirely. He returned to the Ganga, but the old woman was gone. Only the rippling water remained — and the soft scent of lotus.</p>
-      </div>
-    </div>
-    <div class="bead-entry-info">
-      <div style="text-align:center;margin-bottom:1.8rem;">
-        <div class="bead-diagram" style="width:170px;height:170px;margin:0 auto;">
-          <div class="bead-outer-ring"></div>
-          <div class="bead-mid-ring"></div>
-          <div class="bead-center">
-            <span class="bead-number" style="font-size:2.6rem;">७</span>
-            <span class="bead-label">Mukhi</span>
-          </div>
-          <div class="mukhi-line" style="transform:rotate(0deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(51.4deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(102.8deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(154.2deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(205.6deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(257deg);width:70px;"><div class="mukhi-dot"></div></div>
-          <div class="mukhi-line" style="transform:rotate(308.4deg);width:70px;"><div class="mukhi-dot"></div></div>
-        </div>
-      </div>
-      <div class="bead-stat-grid">
-        <div class="bead-stat"><span class="bead-stat-val">Mahalakshmi</span><span class="bead-stat-lbl">Ruling Deity</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">Shani</span><span class="bead-stat-lbl">Planet (Saturn)</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">Earth</span><span class="bead-stat-lbl">Element</span></div>
-        <div class="bead-stat"><span class="bead-stat-val">20mm+</span><span class="bead-stat-lbl">Bead Size</span></div>
-      </div>
-      <div style="font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:0.6rem;">For Those Who</div>
-      <ul class="bead-for-list">
-        <li>✦ &nbsp;Face financial hardship or obstacles</li>
-        <li>✦ &nbsp;Suffer under Sade Sati or Shani dasha</li>
-        <li>✦ &nbsp;Seek Mahalakshmi's grace and abundance</li>
-        <li>✦ &nbsp;Want to remove material-world obstacles</li>
-      </ul>
-      <a href="collection.html" class="btn-primary" style="width:100%;justify-content:center;display:flex;">Receive This Bead ✦</a>
-    </div>
-  </div>
-
-  <!-- THE BUNDLE -->
-  <div style="border:1px solid rgba(201,168,76,0.15);padding:4rem;background:rgba(201,168,76,0.02);text-align:center;" class="reveal">
-    <div class="section-label" style="justify-content:center;margin-bottom:1.5rem;">Sacred Bundle</div>
-    <h2 style="font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1rem;">The Complete <em>Transformation Set</em></h2>
-    <p style="font-size:1.05rem;color:var(--text);max-width:600px;margin:0 auto 2.5rem;line-height:1.9;font-style:italic;">The 3 Mukhi clears what blocks you. The 7 Mukhi opens what you are cleared for. Together — a complete sacred sequence. Two full activations, two ceremonies, one journey.</p>
-    <div style="display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.5rem;">
-      <div style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--gold);line-height:1;">३</div>
-        <div style="font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;margin-top:0.3rem;">3 Mukhi · Agni</div>
-      </div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,168,76,0.3);">+</div>
-      <div style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:var(--gold);line-height:1;">७</div>
-        <div style="font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;margin-top:0.3rem;">7 Mukhi · Mahalakshmi</div>
-      </div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,168,76,0.3);">=</div>
-      <div style="text-align:center;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);font-style:italic;line-height:1.3;">Complete Path</div>
-        <div style="font-family:'Cinzel',serif;font-size:0.48rem;letter-spacing:0.2em;color:var(--text-dim);text-transform:uppercase;margin-top:0.4rem;">Purify → Receive</div>
-      </div>
-    </div>
-    <a href="https://wa.me/9779823783486?text=Namaste%2C%20I%20am%20interested%20in%20the%203+7%20Mukhi%20Sacred%20Bundle." class="btn-whatsapp" target="_blank" style="display:inline-flex;">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Enquire About the Bundle
-    </a>
-  </div>
-
-</div>
-</div>
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-label reveal">Voices of the Blessed</div>
@@ -501,14 +205,10 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
   <p class="reveal">Fifty-four days of Tantric and Vedic consecration. Nepal-certified. Guru-activated. Ready to arrive at your door.</p>
   <div class="cta-buttons reveal">
     <a href="collection.html" class="btn-primary">Shop Collection ✦</a>
-    <a href="https://wa.me/9779823783486?text=Namaste%2C%20I%20am%20ready%20to%20order%20a%20Rudraksha." class="btn-whatsapp" target="_blank">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Order on WhatsApp
-    </a>
+    <a href="https://wa.me/9779823783486?text=Namaste%2C%20I%20am%20ready%20to%20order%20a%20Rudraksha." class="btn-whatsapp" target="_blank">Order on WhatsApp</a>
   </div>
 </div>
 
-<!-- INSTA STRIP -->
 <div class="insta-strip">
   <span class="insta-strip-text">Follow our journey — bead stories, ritual glimpses &amp; availability</span>
   <a href="https://www.instagram.com/rudr_akshya/" class="btn-instagram" target="_blank" style="padding:0.6rem 1.4rem;font-size:0.65rem">
@@ -516,8 +216,14 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
     @rudr_akshya
   </a>
 </div>
-
-<!-- FOOTER -->
+<!-- BEGIN FOOTER -->
+<div class="insta-strip">
+  <span class="insta-strip-text">Follow our journey — bead stories, ritual glimpses &amp; availability</span>
+  <a href="https://www.instagram.com/rudr_akshya/" class="btn-instagram" target="_blank" style="padding:0.6rem 1.4rem;font-size:0.65rem">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @rudr_akshya
+  </a>
+</div>
 <footer>
   <div class="footer-logo">RUDRAKHCHYA</div>
   <p class="footer-tagline">"Every bead is a prayer made solid."<br><span style="font-size:0.75rem;margin-top:0.3rem;display:block">© 2026 Rudrakhchya &nbsp;·&nbsp; rudrakshapasal.com &nbsp;·&nbsp; Nepal</span></p>
@@ -530,18 +236,84 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
     <a href="https://www.instagram.com/rudr_akshya/" target="_blank">Instagram</a>
   </div>
 </footer>
+<!-- END FOOTER -->
 
+<!-- BEGIN CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <span class="cart-title">Your Order</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotalPrice">NRS 0</span>
+    </div>
+    <button class="btn-checkout" onclick="openCheckout()">
+      Proceed to Checkout →
+    </button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Complete Your Order</span>
+      <button class="cart-close" onclick="closeCheckout()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" id="co_name" placeholder="Your full name"></div>
+      <div class="form-group"><label class="form-label">Phone / WhatsApp *</label><input class="form-input" id="co_phone" placeholder="+977 98XXXXXXXX"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">City *</label><input class="form-input" id="co_city" placeholder="Kathmandu"></div>
+        <div class="form-group"><label class="form-label">District</label><input class="form-input" id="co_district" placeholder="Bagmati"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Delivery Address *</label><input class="form-input" id="co_address" placeholder="Street / tole / ward number"></div>
+      <div class="form-group"><label class="form-label">Landmark</label><input class="form-input" id="co_landmark" placeholder="Near..."></div>
+      <div class="form-group"><label class="form-label">Notes / Astrological Context</label><textarea class="form-textarea" id="co_notes" placeholder="Any special requests, birth details, or questions for the Guru..."></textarea></div>
+      <button class="btn-place-order" onclick="placeOrder()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Order via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-check">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="confirm-title">Order <em>Received</em></h2>
+    <p class="confirm-sub">Your order has been sent to our WhatsApp.<br>We will confirm and guide you through payment shortly.</p>
+    <div class="next-steps">
+      <div class="next-step"><span class="next-step-num">01</span><p>We confirm <strong>availability</strong> and message you back within a few hours.</p></div>
+      <div class="next-step"><span class="next-step-num">02</span><p>We share <strong>payment details</strong> — eSewa, bank transfer, or COD within Kathmandu.</p></div>
+      <div class="next-step"><span class="next-step-num">03</span><p>Once payment confirmed, your <strong>consecrated bead is dispatched</strong> with care.</p></div>
+      <div class="next-step"><span class="next-step-num">04</span><p>Your <strong>Nepal-certified Rudraksha</strong> arrives at your door, alive with devotion.</p></div>
+    </div>
+    <div class="confirm-actions">
+      <button class="btn-secondary" onclick="closeConfirm()">Continue Browsing</button>
+      <a href="https://wa.me/9779823783486" class="btn-whatsapp" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Open WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
 <script>
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-
 async function loadFeatured() {
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/rudraksha_products?select=*&order=created_at.desc&limit=3`, {
-      headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }
-    });
+    const res = await sbFetch(`/rest/v1/rudraksha_products?select=*&order=created_at.desc&limit=3`);
     const products = await res.json();
-    if (!products.length) return;
+    if (!products || !products.length) return;
     const grid = document.getElementById('featuredGrid');
     grid.innerHTML = products.map(p => `
       <a href="collection.html?id=${p.id}" class="product-card reveal">
@@ -556,24 +328,10 @@ async function loadFeatured() {
         </div>
       </a>
     `).join('');
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    initReveal();
   } catch(e) {}
 }
-
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
-  { threshold: 0.08 }
-);
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-loadFeatured();
-
-// ADMIN TRIGGER
-let adminBuffer = '';
-document.addEventListener('keydown', e => {
-  adminBuffer += e.key.toLowerCase();
-  if (adminBuffer.includes('admin')) { adminBuffer=''; window.location.href='collection.html?admin=1'; }
-  if (adminBuffer.length > 10) adminBuffer = adminBuffer.slice(-10);
-});
+document.addEventListener('DOMContentLoaded', loadFeatured);
 </script>
 </body>
 </html>
