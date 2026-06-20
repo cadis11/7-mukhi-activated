@@ -6,105 +6,40 @@
 <meta name="description" content="Contact Rudrakhchya — order a Rudraksha, ask about consecration, shipping, or astrological guidance. WhatsApp +977-9823783486.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
-:root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0D0A06;--brown:#2C1F0E;--cream:#F5EEE0;--text:#E2D5BB;--text-dim:#B0A080;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{background:var(--deep);color:var(--text);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.3;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:linear-gradient(to bottom,rgba(13,10,6,0.97),transparent);backdrop-filter:blur(4px);}
-.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
-.nav-logo-main{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--gold);}
-.nav-logo-sub{font-size:0.7rem;letter-spacing:0.15em;color:var(--text-dim);font-style:italic;margin-top:0.1rem;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;color:var(--text-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
-.nav-links a:hover,.nav-links a.active{color:var(--gold);}
-.nav-right{display:flex;gap:0.8rem;}
-.btn-wa-sm{font-family:'Cinzel',serif;font-size:0.62rem;color:#fff;background:#25D366;padding:0.55rem 1.1rem;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:0.4rem;}
-.btn-primary{font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--deep);background:var(--gold);padding:1rem 2.5rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;transition:background 0.3s,transform 0.2s;}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
-
-.page-header{padding:13rem 4rem 6rem;text-align:center;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(201,168,76,0.07),transparent);}
-.page-eyebrow{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem;}
-.page-eyebrow::before,.page-eyebrow::after{content:'';display:block;width:30px;height:1px;background:var(--gold);opacity:0.4;}
-.page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--cream);font-style:italic;}
-.page-title span{color:var(--gold-light);}
-.page-lead{font-size:1.1rem;color:var(--text-dim);margin:1.5rem auto 0;max-width:520px;line-height:1.9;font-style:italic;}
-
-/* MAIN CONTACT */
-#reach{padding:8rem 4rem;max-width:1100px;margin:0 auto;}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:4rem;}
-.contact-card{border:1px solid rgba(201,168,76,0.12);padding:3.5rem 3rem;text-align:center;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden;}
-.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s;}
-.contact-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);}
-.contact-card:hover::before{opacity:1;}
-.contact-icon{font-size:3rem;display:block;margin-bottom:1.5rem;}
-.contact-card h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream);margin-bottom:0.8rem;font-weight:300;}
-.contact-desc{font-size:1rem;color:var(--text-dim);line-height:1.85;margin-bottom:2rem;max-width:320px;margin-left:auto;margin-right:auto;}
-.contact-handle{font-family:'Cinzel',serif;font-size:0.9rem;letter-spacing:0.15em;color:var(--gold);display:block;margin-bottom:2rem;}
-.btn-wa-large{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#fff;background:#25D366;padding:1.1rem 2rem;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;transition:opacity 0.3s,transform 0.2s;width:100%;max-width:280px;}
-.btn-wa-large:hover{opacity:0.88;transform:translateY(-2px);}
-.btn-ig-large{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);padding:1.1rem 2rem;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;transition:opacity 0.3s,transform 0.2s;width:100%;max-width:280px;}
-.btn-ig-large:hover{opacity:0.88;transform:translateY(-2px);}
-
-/* TOPICS */
-#topics{padding:0 4rem 8rem;max-width:1100px;margin:0 auto;}
-.topics-heading{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:3rem;}
-.topics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.topic-card{border:1px solid rgba(201,168,76,0.08);padding:2rem;transition:border-color 0.3s;}
-.topic-card:hover{border-color:rgba(201,168,76,0.2);}
-.topic-icon{font-size:1.4rem;margin-bottom:0.8rem;display:block;}
-.topic-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);margin-bottom:0.4rem;}
-.topic-card p{font-size:0.88rem;color:var(--text-dim);line-height:1.75;}
-.topic-link{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-top:0.8rem;display:inline-block;text-decoration:none;}
-
-/* SHIPPING INFO */
-#shipping-info{padding:8rem 4rem;max-width:1000px;margin:0 auto;}
-.section-label{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
-.section-label::after{content:'';display:block;width:30px;height:1px;background:var(--gold);opacity:0.35;}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:2rem;}
-h2 em{font-style:italic;color:var(--gold-light);}
-.shipping-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.ship-card{border:1px solid rgba(201,168,76,0.1);padding:2.5rem 2rem;text-align:center;transition:border-color 0.3s;}
-.ship-card.free{border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);}
-.ship-flag{font-size:2.8rem;margin-bottom:1rem;display:block;}
-.ship-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem;}
-.ship-free-tag{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.18em;color:var(--deep);text-transform:uppercase;background:var(--gold);padding:0.3rem 0.8rem;display:inline-block;margin-bottom:0.8rem;}
-.ship-contact-tag{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);padding:0.3rem 0.8rem;display:inline-block;margin-bottom:0.8rem;}
-.ship-card p{font-size:0.92rem;color:var(--text-dim);line-height:1.8;}
-
-.insta-strip{background:rgba(201,168,76,0.03);border-top:1px solid rgba(201,168,76,0.08);padding:2rem 4rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
-.insta-strip-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--text-dim);}
-.btn-instagram{font-family:'Cinzel',serif;font-size:0.65rem;color:#fff;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);padding:0.6rem 1.4rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;letter-spacing:0.1em;text-transform:uppercase;}
-footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,168,76,0.08);flex-wrap:wrap;gap:2rem;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.22em;color:var(--gold);}
-.footer-tagline{font-size:0.88rem;color:var(--text-dim);font-style:italic;text-align:center;}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
-.footer-links a{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.12em;color:var(--text-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
-.footer-links a:hover{color:var(--gold);}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.9s ease,transform 0.9s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:0.15s;}.d2{transition-delay:0.3s;}
-@media(max-width:900px){
-  nav{padding:1.2rem 1.5rem;}.nav-links{display:none;}
-  .page-header{padding:9rem 1.5rem 4rem;}
-  #reach,#topics,#shipping-info{padding:5rem 1.5rem;}
-  .contact-grid,.shipping-grid,.topics-grid{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;}
-  .insta-strip{padding:2rem 1.5rem;}
-}
+/* Page specific styling is now in assets/css/style.css for better performance and simplicity */
 </style>
 </head>
 <body>
+
+<!-- BEGIN NAV -->
 <nav>
-  <a href="index.html" class="nav-logo"><span class="nav-logo-main">RUDRAKHCHYA</span><span class="nav-logo-sub">rudrakshapasal.com</span></a>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">RUDRAKHCHYA</span>
+    <span class="nav-logo-sub">rudrakshapasal.com</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li><li><a href="collection.html">Shop</a></li>
-    <li><a href="about.html">Our Story</a></li><li><a href="learn.html">Sacred Beads</a></li><li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="index.html" id="nav-home">Home</a></li>
+    <li><a href="collection.html" id="nav-shop">Shop</a></li>
+    <li><a href="about.html" id="nav-about">Our Story</a></li>
+    <li><a href="learn.html" id="nav-learn">Sacred Beads</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="collection.html" class="btn-primary" style="padding:0.55rem 1.2rem;font-size:0.62rem;">Shop Now</a>
+    <a href="https://wa.me/9779823783486" class="btn-wa-sm" target="_blank" id="nav-wa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <button class="cart-nav-btn" onclick="openCart()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
   </div>
 </nav>
+<!-- END NAV -->
+
 
 <div class="page-header">
   <div class="page-eyebrow">We Are Here to Guide You</div>
@@ -208,17 +143,101 @@ footer{padding:3.5rem 4rem;display:flex;justify-content:space-between;align-item
 
 <div class="insta-strip">
   <span class="insta-strip-text">Follow our journey — bead stories, ritual glimpses &amp; availability</span>
-  <a href="https://www.instagram.com/rudr_akshya/" class="btn-instagram" target="_blank">@rudr_akshya</a>
+  <a href="https://www.instagram.com/rudr_akshya/" class="btn-instagram" target="_blank" style="padding:0.6rem 1.4rem;font-size:0.65rem">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @rudr_akshya
+  </a>
+</div>
+<!-- BEGIN FOOTER -->
+<div class="insta-strip">
+  <span class="insta-strip-text">Follow our journey — bead stories, ritual glimpses &amp; availability</span>
+  <a href="https://www.instagram.com/rudr_akshya/" class="btn-instagram" target="_blank" style="padding:0.6rem 1.4rem;font-size:0.65rem">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @rudr_akshya
+  </a>
 </div>
 <footer>
   <div class="footer-logo">RUDRAKHCHYA</div>
-  <p class="footer-tagline">"Every bead is a prayer made solid."<br><span style="font-size:0.75rem;margin-top:0.3rem;display:block">© 2026 Rudrakhchya &nbsp;·&nbsp; rudrakshapasal.com</span></p>
-  <div class="footer-links"><a href="index.html">Home</a><a href="collection.html">Shop</a><a href="about.html">Story</a><a href="learn.html">Learn</a></div>
+  <p class="footer-tagline">"Every bead is a prayer made solid."<br><span style="font-size:0.75rem;margin-top:0.3rem;display:block">© 2026 Rudrakhchya &nbsp;·&nbsp; rudrakshapasal.com &nbsp;·&nbsp; Nepal</span></p>
+  <div class="footer-links">
+    <a href="collection.html">Shop</a>
+    <a href="about.html">Story</a>
+    <a href="learn.html">Learn</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://wa.me/9779823783486" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/rudr_akshya/" target="_blank">Instagram</a>
+  </div>
 </footer>
-<script>
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-let b='';document.addEventListener('keydown',e=>{b+=e.key.toLowerCase();if(b.includes('admin')){b='';window.location.href='collection.html?admin=1';}if(b.length>10)b=b.slice(-10);});
-</script>
+<!-- END FOOTER -->
+
+<!-- BEGIN CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <span class="cart-title">Your Order</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotalPrice">NRS 0</span>
+    </div>
+    <button class="btn-checkout" onclick="openCheckout()">
+      Proceed to Checkout →
+    </button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Complete Your Order</span>
+      <button class="cart-close" onclick="closeCheckout()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" id="co_name" placeholder="Your full name"></div>
+      <div class="form-group"><label class="form-label">Phone / WhatsApp *</label><input class="form-input" id="co_phone" placeholder="+977 98XXXXXXXX"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">City *</label><input class="form-input" id="co_city" placeholder="Kathmandu"></div>
+        <div class="form-group"><label class="form-label">District</label><input class="form-input" id="co_district" placeholder="Bagmati"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Delivery Address *</label><input class="form-input" id="co_address" placeholder="Street / tole / ward number"></div>
+      <div class="form-group"><label class="form-label">Landmark</label><input class="form-input" id="co_landmark" placeholder="Near..."></div>
+      <div class="form-group"><label class="form-label">Notes / Astrological Context</label><textarea class="form-textarea" id="co_notes" placeholder="Any special requests, birth details, or questions for the Guru..."></textarea></div>
+      <button class="btn-place-order" onclick="placeOrder()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Order via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-check">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="confirm-title">Order <em>Received</em></h2>
+    <p class="confirm-sub">Your order has been sent to our WhatsApp.<br>We will confirm and guide you through payment shortly.</p>
+    <div class="next-steps">
+      <div class="next-step"><span class="next-step-num">01</span><p>We confirm <strong>availability</strong> and message you back within a few hours.</p></div>
+      <div class="next-step"><span class="next-step-num">02</span><p>We share <strong>payment details</strong> — eSewa, bank transfer, or COD within Kathmandu.</p></div>
+      <div class="next-step"><span class="next-step-num">03</span><p>Once payment confirmed, your <strong>consecrated bead is dispatched</strong> with care.</p></div>
+      <div class="next-step"><span class="next-step-num">04</span><p>Your <strong>Nepal-certified Rudraksha</strong> arrives at your door, alive with devotion.</p></div>
+    </div>
+    <div class="confirm-actions">
+      <button class="btn-secondary" onclick="closeConfirm()">Continue Browsing</button>
+      <a href="https://wa.me/9779823783486" class="btn-whatsapp" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Open WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
