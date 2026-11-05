@@ -399,3 +399,16 @@ footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem;background:rgba(18
 @media(max-width:960px){.cols-4{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.cols-4{grid-template-columns:1fr}}
 .btn{white-space:nowrap}
+
+/* ===== separated sections ===== */
+.jump{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:0 0 1rem}
+.jump a{border:1px solid var(--line);border-radius:999px;padding:.55rem 1.1rem;font-size:.82rem;color:var(--ash-dim);transition:.2s}
+.jump a:hover{border-color:var(--gold);color:var(--gold)}
+html{scroll-padding-top:5rem}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.sec-eng .bead-card.eng{background:linear-gradient(165deg,#241911,#1A120D 70%);padding-bottom:1.6rem}
+.sec-eng .bead-card.eng .card-photo{height:150px}
+.sec-act{background:radial-gradient(70% 60% at 50% 0,rgba(217,164,65,.10),transparent 70%),rgba(28,20,16,.55);border-top:1px solid rgba(217,164,65,.35);border-bottom:1px solid rgba(217,164,65,.35)}
+.bead-card.premium{border-color:rgba(217,164,65,.55);box-shadow:0 20px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(217,164,65,.08)}
+.sec-eng .beads,.sec-act .beads{margin-top:2.6rem}
+.gauri-box .price-row{margin-top:.4rem}

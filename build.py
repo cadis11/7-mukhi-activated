@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Generates the Rudrakhchya static site. Run: python3 build.py
 All prices live in the PRICES block below - change them here and rebuild."""
-import html, urllib.parse
+import html, urllib.parse, os
 
 # ---------------------------------------------------------------- PRICES (NRS)
 ACT = {3: 10000, 6: 10000, 7: 10000}      # activated (consecrated) - from the live site
-NAT = {3: 5000, 6: 5000, 7: 5000}         # natural certified - PLACEHOLDER, confirm
-PENDANT = 3000                            # Panchadhatu Om locket pendant add-on
+ENG = {3: 1500, 6: 1500, 7: 1500}          # energized bead only
+ENG_LOCKET = {3: 2500, 6: 2500, 7: 2500}   # energized bead in Panchadhatu Om locket
+ACT_PENDANT = 3000                         # activated bead + locket add-on (CONFIRM)
+GAURI = [("Standard", "NRS 18,000"), ("Above 36 mm", "NRS 35,000 – 40,000"), ("Above 40 mm", "NRS 50,000+")]
+PENDANT_IMG = "assets/img/pendant.jpg"     # drop the pendant photo here and rebuild
 BUNDLE_ACT = {"3 + 7": 18000, "3 + 6 + 7": 26000}   # activated bundles - from live site
 PRICES_CONFIRMED = False                  # False = shows a "preview pricing" banner
 
@@ -71,14 +74,14 @@ def head(title, desc, page, extra=""):
 def foot(scripts=""):
     banner = ""
     if not PRICES_CONFIRMED:
-        banner = '<div class="preview-banner">Preview build — natural-bead prices are placeholders and not final.</div>'
+        banner = '<div class="preview-banner">Preview build — prices are not final yet.</div>'
     return f"""
 <footer>
   <div class="wrap foot">
     <a class="logo" href="index.html">RUDRA<span>KHCHYA</span></a>
     <div class="mantra">"Every bead is a prayer made solid."</div>
     <div class="foot-links">
-      <a href="collection.html">Shop</a><a href="about.html">Story</a><a href="history.html">Rudraksha</a><a href="authenticity.html">Authenticity</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="{IG}">Instagram</a>
+      <a href="collection.html">Shop</a><a href="gaurishankar.html">Gaurishankar</a><a href="about.html">Story</a><a href="history.html">Rudraksha</a><a href="authenticity.html">Authenticity</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="{IG}">Instagram</a>
     </div>
     <div>© 2026 Rudrakhchya · rudrakshapasal.com · Nepal<br>
       <span style="font-size:.68rem;opacity:.7">Bead photos: <a href="https://commons.wikimedia.org/wiki/File:Rudraksha_sixfaces_by_sankar.jpg" style="text-decoration:underline">Sankar 1995</a> via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:underline">CC BY-SA</a>.
@@ -93,7 +96,7 @@ def foot(scripts=""):
 """
 
 
-def cta_final(h2="Your bead is <em>waiting for you.</em>", lead="Nepal-sourced, certificate with every bead, Guru-consecrated if you choose. Message us and we will guide you personally."):
+def cta_final(h2="Your bead is <em>waiting for you.</em>", lead="Nepal-sourced, energized or fully Guru-consecrated. Message us and we will guide you personally."):
     return f"""<section class="final">
   <div class="wrap">
     <span class="eyebrow reveal" style="justify-content:center">Ready to Receive?</span>
@@ -134,33 +137,49 @@ BEADS = {
 }
 
 
-def bead_card(k, picker=True, featured=False):
+def pendant_fig():
+    if os.path.exists(PENDANT_IMG):
+        return ('<figure class="photo"><img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy"></figure>' % PENDANT_IMG)
+    return ""
+
+
+def bead_card(k, kind="act", featured=False):
     b = BEADS[k]
     chips = "".join('<span class="chip">%s</span>' % c for c in b["chips"])
     fits = "".join("<li>%s</li>" % f for f in b["fits"])
-    style = ' style="border-color:rgba(217,164,65,.45)"' if featured else ""
-    if picker:
-        ctl = f"""
-        <div class="seg" role="radiogroup" aria-label="Choose version of {b['name']}">
-          <label><input type="radio" name="t{k}" value="act" checked><span>Activated</span></label>
-          <label><input type="radio" name="t{k}" value="nat"><span>Natural certified</span></label>
-        </div>
-        <label class="addon"><input type="checkbox" data-pendant> Add Panchadhatu Om locket pendant (+{nrs(PENDANT)})</label>
-        <p class="opt-note" data-optnote></p>
-        <div class="price-row">
-          <div class="price"><span data-price>{nrs(ACT[k])}</span><small data-pricesub></small></div>
-          <a class="btn btn-fire" data-order href="{wa('Namaste, I would like to order the %s Rudraksha.' % b['name'])}">Order ✦</a>
-        </div>"""
-        attrs = f' data-bead data-act="{ACT[k]}" data-nat="{NAT[k]}" data-pendant="{PENDANT}" data-name="{b["name"]}"'
-    else:
+    extra = ""
+    if kind == "home":
+        cls, attrs = "bead-card", ""
         ctl = f"""
         <div class="price-row">
-          <div class="price">{nrs(ACT[k])}<small>Activated · Natural from {nrs(NAT[k])}</small></div>
+          <div class="price">{nrs(ACT[k])}<small>Activated · Energized {nrs(ENG[k])}</small></div>
           <a class="btn btn-fire" href="collection.html">Choose ✦</a>
         </div>"""
-        attrs = ""
-    return f"""
-      <article class="bead-card reveal" data-tilt{attrs}{style}>
+    else:
+        if kind == "eng":
+            base, add, tier, cls = ENG[k], ENG_LOCKET[k] - ENG[k], "Energized", "bead-card eng"
+            plain, locket = "Energized bead only", "Energized bead in Panchadhatu locket"
+        else:
+            base, add, tier, cls = ACT[k], ACT_PENDANT, "Activated", "bead-card premium"
+            plain, locket = "Consecrated · Guru's dakshina included", "Consecrated bead in Panchadhatu locket"
+        attrs = (f' data-bead data-base="{base}" data-add="{add}" data-name="{b["name"]}" data-tier="{tier}"'
+                 f' data-sub-plain="{plain}" data-sub-locket="{locket}"')
+        ctl = f"""
+        <label class="addon"><input type="checkbox" data-pendant> With Panchadhatu Om locket (+{nrs(add)})</label>
+        <div class="price-row">
+          <div class="price"><span data-price>{nrs(base)}</span><small data-pricesub>{plain}</small></div>
+          <a class="btn btn-fire" data-order href="{wa('Namaste, I would like to order the %s Rudraksha — %s.' % (b['name'], tier))}">Order ✦</a>
+        </div>"""
+    if kind == "eng":
+        body = f"""
+        <figure class="card-photo">{b['img']}</figure>
+        <span class="devnum">{b['num']}</span>
+        <div class="sub">{b['sub']}</div>
+        <h3>{b['title']}</h3>
+        <p class="desc">{b['desc']}</p>
+        <div class="chips">{chips}</div>{ctl}"""
+    else:
+        body = f"""
         <figure class="card-photo">{b['img']}</figure>
         <span class="devnum">{b['num']}</span>
         <div class="sub">{b['sub']}</div>
@@ -171,12 +190,27 @@ def bead_card(k, picker=True, featured=False):
         <details class="legend">
           <summary>{b['legend_t']}</summary>
           <p>{b['legend']}</p>
-        </details>
+        </details>"""
+    return f"""
+      <article class="{cls} reveal" data-tilt{attrs}>{body}
       </article>"""
 
 
+def gauri_box():
+    rows = "".join(
+        f'<label><input type="radio" name="gs" value="{i}" data-label="{lbl}" data-text="{txt}"{" checked" if i == 0 else ""}><span>{lbl}</span></label>'
+        for i, (lbl, txt) in enumerate(GAURI))
+    return f"""<div class="gauri-box" data-gauri>
+        <div class="seg three" role="radiogroup" aria-label="Gaurishankar size">{rows}</div>
+        <div class="price-row">
+          <div class="price"><span data-gprice>{GAURI[0][1]}</span><small>Final price confirmed with photos of the exact bead</small></div>
+          <a class="btn btn-fire" data-gorder href="{wa('Namaste, I am interested in a Gaurishankar Rudraksha.')}">Order ✦</a>
+        </div>
+      </div>"""
+
+
 RITES = [
-    ("१", "Sourcing &amp; Certification", "Hand-selected in Nepal. Each bead is examined for authentic mukhi formation and documented on its certificate.", "Origin"),
+    ("१", "Sourcing &amp; Certification", "Hand-selected in Nepal. Each bead is examined for authentic mukhi formation.", "Origin"),
     ("२", "Sankalpa — The Vow", "The Guru takes a formal sankalpa binding the bead to its purpose, opening the 54-day period of unbroken ritual discipline.", "Vedic"),
     ("३", "Japa — 2,00,000 Chants", "Two lakh repetitions of the bead's own beeja mantra are chanted over the bead until the count is complete.", "Vedic · Tantric"),
     ("४", "Havan — The Fire Ritual", "A sacred fire ceremony with offerings made in the bead's name, sealing the japa through Agni, the divine witness.", "Vedic"),
@@ -206,18 +240,18 @@ DUAL = """<div class="dual">
 
 FAQ_ITEMS = [
     ("Ordering &amp; delivery", [
-        ("How do I order?", f"Choose your bead on the Shop page and press Order. It opens WhatsApp with your choice already written. We confirm availability, and you confirm payment and delivery details with us before anything is sent."),
+        ("How do I order?", "Choose your bead on the Shop page and press Order. It opens WhatsApp with your choice already written. We confirm availability, and you confirm payment and delivery details with us before anything is sent."),
         ("Do you ship outside Nepal?", "Yes. Delivery within Nepal is free. For India and the rest of the world, message us your country and we confirm the shipping cost before you commit to anything."),
         ("Which bead is right for me?", "Message us your questions or birth details and we will talk it through. The Sacred Beads page also explains what each mukhi is traditionally associated with."),
     ]),
-    ("Natural vs activated", [
-        ("What is the difference between natural and activated?", "A natural certified bead is the genuine Nepal-sourced bead with its certificate, not ceremonially consecrated. An activated bead goes through our Guru's 54-day Vedic and Tantric consecration with 2 lakh chants and havan, and costs more because of that work and the Guru's dakshina."),
-        ("Can I activate a natural bead later?", "Yes. If you start with a natural bead and later want the consecration, message us and we will arrange it."),
-        ("What is the pendant option?", f"For {nrs(PENDANT)} extra, your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear."),
+    ("Energized vs activated", [
+        ("What is the difference between energized and activated?", f"An energized bead is a genuine Nepal-sourced Rudraksha that has been energized and is ready to wear, from {nrs(min(ENG.values()))}. An activated bead goes through our Guru's full 54-day Vedic and Tantric consecration with 2 lakh chants and havan. It costs more because of the Guru's time, years of practice and dakshina."),
+        ("What is the locket option?", f"Your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear. An energized bead in the locket is {nrs(min(ENG_LOCKET.values()))}."),
+        ("What is Gaurishankar Rudraksha?", "Two beads joined naturally, traditionally seen as the union of Shiva (Shankar) and Parvati (Gauri). It is rare, so it is priced by size, from NRS 18,000."),
     ]),
     ("Authenticity", [
-        ("How do I know the bead is genuine?", "Every bead comes with a certificate recording its number, size and mukhi count, matched to photographs of that exact bead. See the Authenticity page for how to inspect a bead yourself."),
-        ("Do you provide X-ray reports?", "X-ray reports are available for rare or high-value beads and on request. Ask us on WhatsApp."),
+        ("How do I know the bead is genuine?", "Activated and Gaurishankar beads come with a certificate matched to photographs of that exact bead. For any bead you can ask us for close-up photos or a video first. See the Authenticity page for how to inspect a bead yourself."),
+        ("Do you provide X-ray reports?", "X-ray reports are available for rare or high-value beads, such as large Gaurishankar, and on request. Ask us on WhatsApp."),
     ]),
     ("Wearing &amp; care", [
         ("How do I wear it?", "Traditionally the first wearing is on a Monday morning at sunrise, after a gentle cleansing, with the beeja mantra chanted 7 or 108 times. See the Sacred Beads page for the full steps."),
@@ -264,27 +298,30 @@ tiers = f"""
     <div class="center">
       <span class="eyebrow reveal">Choose how you receive it</span>
       <h2 class="reveal">Three ways to <em>begin</em></h2>
-      <p class="lead reveal mt1">The same Nepal-sourced beads, in the form that fits your budget and your practice.</p>
+      <p class="lead reveal mt1">Genuine Nepal-sourced Rudraksha, in the form that fits your budget and your practice.</p>
     </div>
     <div class="tiers">
-      <div class="tier reveal"><h3>Natural Certified</h3>
-        <div class="from"><small>From</small>{nrs(min(NAT.values()))}</div>
-        <p>A genuine Nepal-sourced Rudraksha with its certificate. The honest, affordable way to own a real bead.</p>
-        <ul><li>Certificate with bead details</li><li>Not ceremonially consecrated</li><li>Can be consecrated later</li></ul></div>
-      <div class="tier featured reveal"><span class="badge">Full consecration</span><h3>Activated</h3>
+      <div class="tier reveal"><h3>Energized</h3>
+        <div class="from"><small>Bead from</small>{nrs(min(ENG.values()))}</div>
+        <p>A genuine Rudraksha, energized and ready to wear. An easy, honest way to begin.</p>
+        <ul><li>Bead {nrs(min(ENG.values()))}</li><li>In Panchadhatu Om locket {nrs(min(ENG_LOCKET.values()))}</li><li>3, 6 and 7 Mukhi</li></ul>
+        <p class="mt1"><a href="collection.html#energized" style="color:var(--gold)">See energized beads →</a></p></div>
+      <div class="tier featured reveal"><span class="badge">Guru-consecrated</span><h3>Activated</h3>
         <div class="from"><small>From</small>{nrs(min(ACT.values()))}</div>
-        <p>The same bead after our Guru's 54-day Vedic &amp; Tantric consecration with 2 lakh chants and havan.</p>
-        <ul><li>Certificate + consecration record</li><li>Guru's dakshina included</li><li>Free shipping within Nepal</li></ul></div>
-      <div class="tier reveal"><h3>Wear-ready Pendant</h3>
-        <div class="from"><small>Add</small>+ {nrs(PENDANT)}</div>
-        <p>Your bead set in a Panchadhatu Om locket pendant that opens to hold it. Natural or activated.</p>
-        <ul><li>Panchadhatu Om locket</li><li>Opens to hold the bead</li><li>Ready to wear and to gift</li></ul></div>
+        <p>The full 54-day Vedic &amp; Tantric consecration with 2 lakh chants and havan, priced for the Guru's time and practice.</p>
+        <ul><li>Certificate + consecration record</li><li>Guru's dakshina included</li><li>Free shipping within Nepal</li></ul>
+        <p class="mt1"><a href="collection.html#activated" style="color:var(--gold)">See activated beads →</a></p></div>
+      <div class="tier reveal"><h3>Gaurishankar</h3>
+        <div class="from"><small>From</small>{GAURI[0][1]}</div>
+        <p>A rare natural joining of two beads, priced by size. Large beads are available on request.</p>
+        <ul><li>Standard {GAURI[0][1]}</li><li>Above 36 mm {GAURI[1][1]}</li><li>Above 40 mm {GAURI[2][1]}</li></ul>
+        <p class="mt1"><a href="gaurishankar.html" style="color:var(--gold)">About Gaurishankar →</a></p></div>
     </div>
   </div>
 </section>"""
 
 home = head("Rudrakhchya | Sacred Rudraksha from Nepal — 3, 6 & 7 Mukhi",
-            "Nepal-sourced Rudraksha with a certificate on every bead. Natural or Guru-consecrated (54 days, 2 lakh chants), with optional Panchadhatu pendant. Free shipping within Nepal.",
+            "Nepal-sourced Rudraksha: energized beads from NRS 1,500, Guru-consecrated beads (54 days, 2 lakh chants) and rare Gaurishankar. Panchadhatu locket option. Free shipping within Nepal.",
             "index.html")
 home += f"""
 <header class="hero">
@@ -292,7 +329,7 @@ home += f"""
     <div class="hero-copy">
       <span class="eyebrow">Nepal Sourced · Guru Consecrated</span>
       <h1>Sacred beads, <em>sourced</em> in Nepal &amp; consecrated by ritual.</h1>
-      <p class="lead">3 Mukhi, 6 Mukhi and 7 Mukhi Rudraksha — hand-selected in Nepal, documented with a certificate, and, if you choose, entrusted to our Guru for 2 lakh mantra chants, havan and 54 days of Vedic &amp; Tantric ceremony.</p>
+      <p class="lead">3 Mukhi, 6 Mukhi and 7 Mukhi Rudraksha, and the rare Gaurishankar — hand-selected in Nepal. Choose a simply energized bead, or one fully consecrated by our Guru through 2 lakh mantra chants, havan and 54 days of Vedic &amp; Tantric ceremony.</p>
       <div class="hero-ctas">
         <a class="btn btn-fire" href="collection.html">View Collection ✦</a>
         <a class="btn btn-ghost" href="{wa('Namaste, I am interested in a Rudraksha.')}">Ask on WhatsApp</a>
@@ -301,7 +338,7 @@ home += f"""
         <div class="stat"><b>2L</b><span>Chants (activated)</span></div>
         <div class="stat"><b>54</b><span>Days of ritual</span></div>
         <div class="stat"><b>20mm+</b><span>Activated beads</span></div>
-        <div class="stat"><b>Cert.</b><span>With every bead</span></div>
+        <div class="stat"><b>Cert.</b><span>Activated &amp; rare beads</span></div>
       </div>
     </div>
     <div class="hero-3d">
@@ -325,9 +362,9 @@ home += f"""
     <h2 class="reveal">Sourced. Documented. <em>Consecrated.</em></h2>
     <div class="pillars">
       <div class="pillar reveal"><span class="glyph">🏔️</span><h3>Nepal Sourcing</h3><p>Beads come directly from Nepal, hand-examined for genuine mukhi formation before anything else happens.</p></div>
-      <div class="pillar reveal"><span class="glyph">📜</span><h3>A Certificate for Each</h3><p>Every bead has its own certificate — number, size and mukhi count, matched to photographs of that exact bead.</p></div>
+      <div class="pillar reveal"><span class="glyph">📜</span><h3>Proof for Rare Beads</h3><p>Activated and Gaurishankar beads come with a certificate matched to photographs of that exact bead. Ask for photos of any bead first.</p></div>
       <div class="pillar reveal"><span class="glyph">🔱</span><h3>Vedic &amp; Tantric Ritual</h3><p>Activated beads receive prana pratishtha, havan, 2 lakh japa and Tantric invocation from our Guru over 54 days.</p></div>
-      <div class="pillar reveal"><span class="glyph">🌺</span><h3>Your Choice</h3><p>Natural, activated, or set as a pendant. You pay for what you want, and can add the consecration later.</p></div>
+      <div class="pillar reveal"><span class="glyph">🌺</span><h3>Your Choice</h3><p>Energized from NRS 1,500, fully activated, or set in a Panchadhatu locket. You pay for the depth you want.</p></div>
     </div>
   </div>
 </section>
@@ -338,7 +375,7 @@ home += f"""
     <span class="eyebrow reveal">Sacred Collection</span>
     <h2 class="reveal">The Three <em>Sacred Beads</em></h2>
     <p class="lead reveal mt1">Three mukhis, three deities, three traditional purposes — clear the path, command the path, open the path.</p>
-    <div class="beads">{bead_card(3, False)}{bead_card(6, False, True)}{bead_card(7, False)}
+    <div class="beads">{bead_card(3, "home")}{bead_card(6, "home")}{bead_card(7, "home")}
     </div>
   </div>
 </section>
@@ -360,7 +397,7 @@ home += f"""
       <div class="reveal">
         <span class="eyebrow">Authenticity</span>
         <h2 class="mt1">A real bead should <em>prove itself.</em></h2>
-        <p class="lead mt1">Rudraksha is widely imitated. That is why each of our beads carries a certificate, close-up photographs and, for rare beads, an X-ray report on request.</p>
+        <p class="lead mt1">Rudraksha is widely imitated. That is why activated and Gaurishankar beads carry a certificate, why we share close-up photographs of any bead on request, and why rare beads can come with an X-ray report.</p>
         <p class="mt2"><a class="btn btn-fire" href="authenticity.html">How we verify a bead ✦</a></p>
       </div>
       <div class="photo reveal"><img src="assets/img/bead-closeup.jpg" alt="Natural mukhi furrows on a Rudraksha bead" width="900" height="409" loading="lazy"></div>
@@ -405,46 +442,89 @@ home += foot('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/
 pages["index.html"] = home
 
 # ================================================================ SHOP
-shop = head("Shop | Rudrakhchya — 3, 6 & 7 Mukhi Rudraksha from Nepal",
-            "Choose natural certified or Guru-consecrated 3, 6 and 7 Mukhi Rudraksha, with optional Panchadhatu Om pendant. Order on WhatsApp. Free shipping in Nepal.",
+shop = head("Shop | Rudrakhchya — Energized, Activated & Gaurishankar Rudraksha",
+            "Energized Rudraksha from NRS 1,500, Guru-consecrated 3, 6 and 7 Mukhi, and rare Gaurishankar by size. Panchadhatu Om locket option. Order on WhatsApp. Free shipping in Nepal.",
             "collection.html")
-shop += page_hero("The Collection", "Choose your <em>bead</em>",
-                  "Pick the mukhi, choose natural or activated, and add a pendant if you want it ready to wear. The price updates as you choose.")
+shop += page_hero("The Collection", "Choose your <em>path</em>",
+                  "Energized beads for everyday wear, Guru-activated beads for those who want the full consecration, and the rare Gaurishankar. Tap a path to jump to it.")
 shop += f"""
-<section style="padding-top:1rem">
+<div class="wrap"><nav class="jump" aria-label="Sections">
+  <a href="#energized">Energized · from {nrs(min(ENG.values()))}</a>
+  <a href="#activated">Activated · from {nrs(min(ACT.values()))}</a>
+  <a href="#gaurishankar">Gaurishankar · from {GAURI[0][1]}</a>
+  <a href="#locket">Locket pendant</a>
+</nav></div>
+
+<section id="energized" class="sec-eng">
   <div class="wrap">
-    <div class="beads">{bead_card(3)}{bead_card(6, featured=True)}{bead_card(7)}
+    <div class="center"><span class="eyebrow reveal">Everyday beads</span>
+    <h2 class="reveal">Energized <em>Rudraksha</em></h2>
+    <p class="lead reveal mt1">Genuine Nepal-sourced beads, energized and ready to wear, priced to be easy to begin with: <b>{nrs(min(ENG.values()))}</b> for the bead, <b>{nrs(min(ENG_LOCKET.values()))}</b> in a Panchadhatu Om locket.</p></div>
+    <div class="beads">{bead_card(3, "eng")}{bead_card(6, "eng")}{bead_card(7, "eng")}
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section id="locket" class="alt">
   <div class="wrap">
-    <div class="center"><span class="eyebrow reveal">Natural or activated?</span>
-    <h2 class="reveal">What you are <em>choosing between</em></h2></div>
-    <div class="tbl-wrap"><table class="compare">
-      <thead><tr><th></th><th>Natural certified</th><th>Activated</th></tr></thead>
-      <tbody>
-        <tr><td>Nepal-sourced bead</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>Certificate for that bead</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>54-day Vedic &amp; Tantric consecration</td><td>No (can be added later)</td><td>Yes</td></tr>
-        <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
-        <tr><td>Guru's dakshina included</td><td>—</td><td>Yes</td></tr>
-        <tr><td>Pendant option (+{nrs(PENDANT)})</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>Price, per bead</td><td>from {nrs(min(NAT.values()))}</td><td>from {nrs(min(ACT.values()))}</td></tr>
-      </tbody></table></div>
+    <div class="{'cols-2' if pendant_fig() else ''}">
+      {pendant_fig()}
+      <div class="prose reveal" style="margin:0 auto">
+        <span class="eyebrow">The locket</span>
+        <h2 class="mt1">Panchadhatu Om <em>locket pendant</em></h2>
+        <p>A Panchadhatu Om locket that opens to hold your Rudraksha, so the bead sits close to you and stays protected. It makes the bead ready to wear and ready to gift.</p>
+        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). Activated beads can be set in the locket too: +{nrs(ACT_PENDANT)}.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="activated" class="sec-act">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow reveal">Guru-consecrated</span>
+    <h2 class="reveal">Activated <em>Rudraksha</em></h2>
+    <p class="lead reveal mt1">The complete 54-day Vedic &amp; Tantric consecration: 2 lakh chants, havan and the Guru's blessing. It is priced higher because each bead takes the Guru's time and years of practice, and his dakshina is included.</p></div>
+    <div class="beads">{bead_card(3)}{bead_card(6, featured=True)}{bead_card(7)}
+    </div>
+    <div class="bundle reveal mt3">
+      <span class="eyebrow" style="justify-content:center">Activated Bundles</span>
+      <h2 style="margin-top:.8rem">The Complete <em>Path</em></h2>
+      <div class="bundle-seq"><div class="node">३</div><span class="join">+</span><div class="node">६</div><span class="join">+</span><div class="node">७</div></div>
+      <p style="font-size:.95rem;color:var(--ash-dim);margin-bottom:1.8rem">3 + 7 Mukhi — <b style="color:var(--gold)">{nrs(BUNDLE_ACT['3 + 7'])}</b> &nbsp;·&nbsp; 3 + 6 + 7 — <b style="color:var(--gold)">{nrs(BUNDLE_ACT['3 + 6 + 7'])}</b></p>
+      <a class="btn btn-fire" href="{wa('Namaste, I am interested in a Rudraksha bundle.')}">Enquire About Bundles</a>
+    </div>
+  </div>
+</section>
+
+<section id="gaurishankar" class="alt">
+  <div class="wrap">
+    <div class="cols-2">
+      <div class="prose reveal" style="margin:0">
+        <span class="eyebrow">Rare · Collector</span>
+        <h2 class="mt1">Gaurishankar <em>Rudraksha</em></h2>
+        <p>Two beads joined naturally into one, traditionally seen as the union of Shiva (Shankar) and Parvati (Gauri). It is rare, and its price rises quickly with size.</p>
+        <p><a href="gaurishankar.html" style="color:var(--gold);text-decoration:underline">Read about Gaurishankar and how to check one →</a></p>
+      </div>
+      <div class="panel reveal">{gauri_box()}</div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="bundle reveal">
-      <span class="eyebrow" style="justify-content:center">Activated Bundles</span>
-      <h2 style="margin-top:.8rem">The Complete <em>Path</em></h2>
-      <div class="bundle-seq"><div class="node">३</div><span class="join">+</span><div class="node">६</div><span class="join">+</span><div class="node">७</div></div>
-      <p style="font-size:.95rem;color:var(--ash-dim);margin-bottom:1.8rem">3 + 7 Mukhi — <b style="color:var(--gold)">{nrs(BUNDLE_ACT['3 + 7'])}</b> &nbsp;·&nbsp; 3 + 6 + 7 — <b style="color:var(--gold)">{nrs(BUNDLE_ACT['3 + 6 + 7'])}</b><br>Natural-bead bundles on request.</p>
-      <a class="btn btn-fire" href="{wa('Namaste, I am interested in a Rudraksha bundle.')}">Enquire About Bundles</a>
-    </div>
+    <div class="center"><span class="eyebrow reveal">Energized or activated?</span>
+    <h2 class="reveal">What you are <em>choosing between</em></h2></div>
+    <div class="tbl-wrap"><table class="compare">
+      <thead><tr><th></th><th>Energized</th><th>Activated</th></tr></thead>
+      <tbody>
+        <tr><td>Genuine Nepal-sourced bead</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Energized and ready to wear</td><td>Yes</td><td>Yes, as part of the full ritual</td></tr>
+        <tr><td>54-day Vedic &amp; Tantric consecration</td><td>No</td><td>Yes</td></tr>
+        <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
+        <tr><td>Certificate matched to photographs</td><td>Photos on request</td><td>Yes</td></tr>
+        <tr><td>Guru's dakshina included</td><td>—</td><td>Yes</td></tr>
+        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / +{nrs(ACT_PENDANT)}</td></tr>
+      </tbody></table></div>
   </div>
 </section>
 
@@ -452,7 +532,7 @@ shop += f"""
   <div class="wrap">
     <div class="center"><span class="eyebrow reveal">How to order</span><h2 class="reveal">Four <em>simple</em> steps</h2></div>
     <div class="steps">
-      <div class="rite reveal"><span class="step">१</span><h3>Choose</h3><p>Pick your mukhi, natural or activated, and pendant if you want it.</p></div>
+      <div class="rite reveal"><span class="step">१</span><h3>Choose</h3><p>Pick energized, activated or Gaurishankar, and the locket if you want it.</p></div>
       <div class="rite reveal"><span class="step">२</span><h3>Message us</h3><p>Press Order. WhatsApp opens with your choice already written.</p></div>
       <div class="rite reveal"><span class="step">३</span><h3>Confirm</h3><p>We confirm availability. You confirm payment and delivery details with us.</p></div>
       <div class="rite reveal"><span class="step">४</span><h3>Receive</h3><p>Free delivery within Nepal. Shipping to India and abroad is confirmed before you pay.</p></div>
@@ -524,6 +604,53 @@ hist += f"""
 hist += foot()
 pages["history.html"] = hist
 
+# ================================================================ GAURISHANKAR
+gs = head("Gaurishankar Rudraksha — Meaning, Sizes & Price | Rudrakhchya",
+          "Gaurishankar Rudraksha: two beads joined naturally, traditionally the union of Shiva and Parvati. Sizes and prices from NRS 18,000 and how to check one is genuine.",
+          "gaurishankar.html")
+gs += page_hero("Rare · Collector", "Gaurishankar <em>Rudraksha</em>",
+                "Two beads joined naturally into one. In tradition, Shiva and Parvati together.")
+gs += f"""
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="cols-2">
+      <div class="prose reveal" style="margin:0">
+        <h2>What it is</h2>
+        <p>A <b>Gaurishankar</b> Rudraksha is two beads that have grown naturally joined at the base. <b>Gauri</b> is Parvati and <b>Shankar</b> is Shiva, and the bead is traditionally regarded as their union.</p>
+        <p>Because the joining is a natural accident of growth, a good Gaurishankar is uncommon, and the larger it is, the rarer it becomes.</p>
+        <h3>Traditional associations</h3>
+        <p>In tradition it is associated with harmony between partners and within the family, with steady devotion, and with the balance of Shiva and Shakti. These are statements of belief, not promises of results.</p>
+        <p><b>Mantra:</b> ॐ गौरीशङ्कराय नमः (Om Gaurishankaraya Namah)</p>
+      </div>
+      <div class="panel reveal">
+        <h3>Sizes &amp; price</h3>
+        <table class="compare"><tbody>
+          {"".join(f"<tr><td>{l}</td><td>{t}</td></tr>" for l, t in GAURI)}
+        </tbody></table>
+        <p class="note">Larger beads vary a great deal, so the final price is confirmed on WhatsApp with photographs of the exact bead.</p>
+        <div class="mt2">{gauri_box()}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow reveal">Be careful</span><h2 class="reveal">How to check a <em>Gaurishankar</em></h2></div>
+    <div class="cols-3 mt3">
+      <div class="panel reveal"><h3>Look at the joint</h3><ul><li>A natural joint is uneven and fibrous</li><li>Two separate beads glued together show a seam or filler</li><li>Ask for close-up photographs of the joint</li></ul></div>
+      <div class="panel reveal"><h3>Ask for an X-ray</h3><ul><li>It shows whether the beads are truly joined inside</li><li>Recommended for large and high-value beads</li><li>Available from us on request</li></ul></div>
+      <div class="panel reveal"><h3>Match the paper</h3><ul><li>The certificate lists size and weight</li><li>Photographs are of the exact bead</li><li>Measure it when it arrives</li></ul></div>
+    </div>
+    <p class="center mt2 reveal"><a class="btn btn-ghost" href="authenticity.html">More on authenticity →</a></p>
+    <p class="disclaimer">Benefits are traditional beliefs, not medical, legal or financial claims.</p>
+  </div>
+</section>
+{cta_final("Interested in a <em>Gaurishankar?</em>", "Tell us the size you want and we will send photographs of the exact beads available.")}
+"""
+gs += foot()
+pages["gaurishankar.html"] = gs
+
 # ================================================================ STORY
 story = head("Our Story — Rudrakhchya | The Guru and the 54 Days",
              "The story of Rudrakhchya: Nepal-sourced Rudraksha, the Guru who completed 36 lakh chants, and the 54-day consecration behind every activated bead.",
@@ -553,7 +680,7 @@ story += f"""
     <div class="center"><span class="eyebrow reveal">The journey of a bead</span><h2 class="reveal">From Nepal to <em>your hands</em></h2></div>
     <div class="steps">
       <div class="rite reveal"><span class="step">१</span><h3>Sourcing</h3><p>Beads are selected in Nepal and examined for genuine mukhi formation. Activated beads are 20mm+.</p></div>
-      <div class="rite reveal"><span class="step">२</span><h3>Certificate</h3><p>Each bead is documented on its own certificate with photographs, so you can match the bead to the paper.</p></div>
+      <div class="rite reveal"><span class="step">२</span><h3>Certificate</h3><p>Activated and Gaurishankar beads are documented on their own certificate with photographs, so you can match the bead to the paper.</p></div>
       <div class="rite reveal"><span class="step">३</span><h3>Consecration</h3><p>Activated beads go through 54 days of ritual: 2 lakh chants, havan and Tantric invocation.</p></div>
       <div class="rite reveal"><span class="step">४</span><h3>Delivery</h3><p>Your bead is dispatched with care. Free within Nepal, and shipped worldwide at a cost we confirm in advance.</p></div>
     </div>
@@ -573,8 +700,8 @@ story += f"""
     <div class="center"><span class="eyebrow reveal">What we believe</span><h2 class="reveal">Our <em>principles</em></h2></div>
     <div class="cols-3 mt3">
       <div class="panel reveal"><h3>Honest about what it is</h3><p>We describe benefits as tradition teaches them. We do not promise results, and we do not offer a bead as a replacement for medical or financial advice.</p></div>
-      <div class="panel reveal"><h3>You choose the depth</h3><p>Natural and activated beads are both genuine. Consecration is offered, never forced, and can be added later.</p></div>
-      <div class="panel reveal"><h3>Proof you can hold</h3><p>A certificate and photographs for each bead, and an X-ray report on request for rare beads.</p></div>
+      <div class="panel reveal"><h3>You choose the depth</h3><p>Energized and activated beads are both genuine. The full consecration is offered, never forced.</p></div>
+      <div class="panel reveal"><h3>Proof you can hold</h3><p>A certificate for activated and Gaurishankar beads, photographs of any bead on request, and an X-ray report for rare beads.</p></div>
     </div>
   </div>
 </section>
@@ -585,7 +712,7 @@ pages["about.html"] = story
 
 # ================================================================ AUTHENTICITY
 auth = head("Rudraksha Authenticity & Certificates | Rudrakhchya",
-            "How we verify Rudraksha: a certificate for every bead, photographs, optional X-ray, and how to inspect a bead yourself.",
+            "How we verify Rudraksha: certificates for activated and Gaurishankar beads, photographs, optional X-ray, and how to inspect a bead yourself.",
             "authenticity.html")
 auth += page_hero("Authenticity", "A real bead should <em>prove itself</em>",
                   "Rudraksha is widely imitated and widely over-claimed. Here is exactly what you receive with a Rudrakhchya bead, and how to check any bead you are offered.")
@@ -595,7 +722,7 @@ auth += f"""
     <div class="cols-2">
       <div class="prose reveal" style="margin:0">
         <h2>The certificate</h2>
-        <p>Every bead is sold with a certificate that describes <b>that specific bead</b>, not the product in general. It records the things you can check with your own eyes and a ruler:</p>
+        <p>Activated beads and Gaurishankar beads are sold with a certificate that describes <b>that specific bead</b>, not the product in general. For an energized bead you can ask us for close-up photographs or a video of the exact bead before you order. It records the things you can check with your own eyes and a ruler:</p>
         <p>The bead's reference number, its mukhi count, its size and weight, and photographs of the bead matched to the paper. For activated beads, the consecration is recorded too.</p>
         <p>The sample on the right shows the layout. It is an example of the fields, not a real record.</p>
       </div>
@@ -610,7 +737,7 @@ auth += f"""
           <dt>Weight</dt><dd>__ g</dd>
           <dt>Mukhi count</dt><dd>7 natural furrows</dd>
           <dt>Photographs</dt><dd>Attached</dd>
-          <dt>Consecration</dt><dd>Activated / Natural</dd>
+          <dt>Consecration</dt><dd>Activated</dd>
         </dl>
       </div>
     </div>
@@ -816,7 +943,7 @@ seven += f"""
   <div class="wrap">
     <div class="cols-2">
       <div class="panel reveal"><h3>Activated 7 Mukhi</h3><p>Nepal-sourced, certificate, 54-day Vedic &amp; Tantric consecration with 2 lakh chants and havan.</p><div class="price mt1">{nrs(ACT[7])}</div></div>
-      <div class="panel reveal"><h3>Natural certified 7 Mukhi</h3><p>Nepal-sourced with certificate, without the consecration. Pendant add-on {nrs(PENDANT)}.</p><div class="price mt1">{nrs(NAT[7])}</div></div>
+      <div class="panel reveal"><h3>Energized 7 Mukhi</h3><p>A genuine Nepal-sourced 7 Mukhi, energized and ready to wear, without the full consecration. In a Panchadhatu locket {nrs(ENG_LOCKET[7])}.</p><div class="price mt1">{nrs(ENG[7])}</div></div>
     </div>
     <p class="center mt2"><a class="btn btn-fire" href="collection.html">Choose your 7 Mukhi ✦</a></p>
     <p class="disclaimer">Benefits are traditional beliefs, not medical, legal or financial claims.</p>

@@ -31,23 +31,28 @@
   /* bead price picker */
   const fmt=n=>'NRS '+n.toLocaleString('en-US');
   document.querySelectorAll('[data-bead]').forEach(card=>{
-    const act=+card.dataset.act,nat=+card.dataset.nat,pen=+card.dataset.pendant,name=card.dataset.name;
+    const base=+card.dataset.base,add=+card.dataset.add,name=card.dataset.name,tier=card.dataset.tier;
     const price=card.querySelector('[data-price]'),sub=card.querySelector('[data-pricesub]'),
-          btn=card.querySelector('[data-order]'),note=card.querySelector('[data-optnote]'),
-          pend=card.querySelector('[data-pendant]');
+          btn=card.querySelector('[data-order]'),pend=card.querySelector('[data-pendant]');
     function upd(){
-      const tier=card.querySelector('input[type=radio]:checked').value;
-      const withP=pend.checked;
-      const total=(tier==='act'?act:nat)+(withP?pen:0);
+      const withP=pend.checked,total=base+(withP?add:0);
       price.textContent=fmt(total);
-      sub.textContent=tier==='act'?'Consecrated · Guru dakshina included':'Natural certified · not consecrated';
-      note.textContent=tier==='act'
-        ?'54-day Vedic & Tantric consecration, 2 lakh chants and havan.'
-        :'Same Nepal-sourced selection with certificate. Can be consecrated later.';
-      const msg='Namaste, I would like to order the '+name+' Rudraksha — '+(tier==='act'?'Activated':'Natural certified')+(withP?' with pendant':'')+' ('+fmt(total)+').';
+      sub.textContent=withP?card.dataset.subLocket:card.dataset.subPlain;
+      const msg='Namaste, I would like to order the '+name+' Rudraksha — '+tier+(withP?' in a Panchadhatu Om locket':'')+' ('+fmt(total)+').';
       btn.href='https://wa.me/9779823783486?text='+encodeURIComponent(msg);
     }
-    card.querySelectorAll('input').forEach(i=>i.addEventListener('change',upd));
+    pend.addEventListener('change',upd);
+    upd();
+  });
+  /* gaurishankar size picker */
+  document.querySelectorAll('[data-gauri]').forEach(box=>{
+    const price=box.querySelector('[data-gprice]'),btn=box.querySelector('[data-gorder]');
+    function upd(){
+      const r=box.querySelector('input[type=radio]:checked');
+      price.textContent=r.dataset.text;
+      btn.href='https://wa.me/9779823783486?text='+encodeURIComponent('Namaste, I am interested in a Gaurishankar Rudraksha — '+r.dataset.label+' ('+r.dataset.text+').');
+    }
+    box.querySelectorAll('input[type=radio]').forEach(i=>i.addEventListener('change',upd));
     upd();
   });
 })();
