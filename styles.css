@@ -143,6 +143,10 @@ nav{
   position:absolute;bottom:0;left:50%;transform:translateX(-50%);
   font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ash-dim);white-space:nowrap;
 }
+@media(max-width:560px){.bead-caption{display:none}}
+@media(max-width:960px){.hero-copy .eyebrow::before{display:none}}
+.foot-links a,.foot a{padding:.45rem 0;display:inline-block}
+html,body{overflow-x:clip}
 
 /* mantra ribbon */
 .ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.1rem 0;overflow:hidden;background:rgba(28,20,16,.5)}

@@ -11,7 +11,7 @@ ACT_PENDANT = 3000                         # activated bead + locket add-on (CON
 GAURI = [("Standard", "NRS 18,000"), ("Above 36 mm", "NRS 35,000 – 40,000"), ("Above 40 mm", "NRS 50,000+")]
 PENDANT_IMG = "assets/img/pendant.jpg"     # drop the pendant photo here and rebuild
 BUNDLE_ACT = {"3 + 7": 18000, "3 + 6 + 7": 26000}   # activated bundles - from live site
-PRICES_CONFIRMED = False                  # False = shows a "preview pricing" banner
+PRICES_CONFIRMED = True                   # False = shows a "preview pricing" banner
 
 WA = "9779823783486"
 IG = "https://www.instagram.com/rudr_akshya/"
@@ -323,8 +323,8 @@ tiers = f"""
   </div>
 </section>"""
 
-home = head("Rudrakhchya | Sacred Rudraksha from Nepal — 3, 6 & 7 Mukhi",
-            "Nepal-sourced Rudraksha: energized beads from NRS 1,500, Guru-consecrated beads (54 days, 2 lakh chants) and rare Gaurishankar. Panchadhatu locket option. Free shipping within Nepal.",
+home = head("Rudrakhchya | Sacred Rudraksha from Nepal",
+            "Nepal-sourced Rudraksha: energized beads from NRS 1,500, Guru-consecrated beads (54 days, 2 lakh chants) and rare Gaurishankar. Free shipping in Nepal.",
             "index.html")
 home += f"""
 <header class="hero">
@@ -445,8 +445,8 @@ home += foot('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/
 pages["index.html"] = home
 
 # ================================================================ SHOP
-shop = head("Shop | Rudrakhchya — Energized, Activated & Gaurishankar Rudraksha",
-            "Energized Rudraksha from NRS 1,500, Guru-consecrated 3, 6 and 7 Mukhi, and rare Gaurishankar by size. Panchadhatu Om locket option. Order on WhatsApp. Free shipping in Nepal.",
+shop = head("Shop Rudraksha | Energized, Activated | Rudrakhchya",
+            "Energized Rudraksha from NRS 1,500, Guru-consecrated 3, 6 and 7 Mukhi, and rare Gaurishankar. Panchadhatu locket option. Order on WhatsApp.",
             "collection.html")
 shop += page_hero("The Collection", "Choose your <em>path</em>",
                   "Energized beads for everyday wear, Guru-activated beads for those who want the full consecration, and the rare Gaurishankar. Tap a path to jump to it.")
@@ -521,7 +521,6 @@ shop += f"""
       <thead><tr><th></th><th>Energized</th><th>Activated</th></tr></thead>
       <tbody>
         <tr><td>Genuine Nepal-sourced bead</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>Energized and ready to wear</td><td>Yes</td><td>Yes, as part of the full ritual</td></tr>
         <tr><td>54-day Vedic &amp; Tantric consecration</td><td>No</td><td>Yes</td></tr>
         <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
         <tr><td>Certificate matched to photographs</td><td>Photos on request</td><td>Yes</td></tr>
@@ -548,7 +547,7 @@ shop += foot()
 pages["collection.html"] = shop
 
 # ================================================================ HISTORY
-hist = head("Rudraksha History & Meaning — The Tears of Rudra | Rudrakhchya",
+hist = head("Rudraksha History & Meaning | Rudrakhchya",
             "Where Rudraksha comes from: the Puranic story of Shiva's tears, the Elaeocarpus ganitrus tree, what mukhi means, and why a mala has 108 beads.",
             "history.html")
 hist += page_hero("The Tear of Rudra", "A seed with a <em>story</em>",
@@ -608,8 +607,8 @@ hist += foot()
 pages["history.html"] = hist
 
 # ================================================================ GAURISHANKAR
-gs = head("Gaurishankar Rudraksha — Meaning, Sizes & Price | Rudrakhchya",
-          "Gaurishankar Rudraksha: two beads joined naturally, traditionally the union of Shiva and Parvati. Sizes and prices from NRS 18,000 and how to check one is genuine.",
+gs = head("Gaurishankar Rudraksha: Meaning & Price | Rudrakhchya",
+          "Gaurishankar Rudraksha: two beads joined naturally, traditionally the union of Shiva and Parvati. Prices from NRS 18,000 and how to check one.",
           "gaurishankar.html")
 gs += page_hero("Rare · Collector", "Gaurishankar <em>Rudraksha</em>",
                 "Two beads joined naturally into one. In tradition, Shiva and Parvati together.")
@@ -779,7 +778,7 @@ def aspect(icon, title, text):
     return f'<div class="panel reveal"><h3>{icon} {title}</h3><p>{text}</p></div>'
 
 
-learn = head("The Sacred Beads — 3, 6 & 7 Mukhi Rudraksha Guide | Rudrakhchya",
+learn = head("3, 6 & 7 Mukhi Rudraksha Guide | Rudrakhchya",
              "What the 3 Mukhi, 6 Mukhi and 7 Mukhi Rudraksha are traditionally associated with, their mantras, and how to wear them. English and Nepali.",
              "learn.html")
 learn += page_hero("Vedic &amp; Tantric Knowledge", "The <em>Sacred Beads</em> of Rudrakhchya",
