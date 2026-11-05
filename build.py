@@ -476,7 +476,7 @@ shop += f"""
         <span class="eyebrow">The locket</span>
         <h2 class="mt1">Panchadhatu Om <em>locket pendant</em></h2>
         <p>A Panchadhatu Om locket that opens to hold your Rudraksha, so the bead sits close to you and stays protected. It makes the bead ready to wear and ready to gift.</p>
-        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). The activated price is the same for any size, because it pays for the activation. Activated beads are usually 20 mm+, which is too large for the locket, so for the locket we activate a smaller bead (under 20 mm) at the same {nrs(min(ACT.values()))}, plus the locket: +{nrs(ACT_LOCKET_ADD)}.</p>
+        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). The activated price is the same for any size, because it pays for the activation. Activated beads are usually 20 mm+, which is too large for the locket, so for the locket we activate a smaller bead (under 20 mm) at the same {nrs(min(ACT.values()))}; the locket adds {nrs(ACT_LOCKET_ADD)}, so the bead in the locket is {nrs(min(ACT.values())+ACT_LOCKET_ADD)} in total.</p>
         <div class="price-row mt1"><div class="price"><span>{nrs(LOCKET_ONLY)}</span><small>Locket only, without a bead</small></div>
           <a class="btn btn-fire" href="{wa('Namaste, I would like to order the Panchadhatu Om locket only (without a bead) — NRS %s.' % format(LOCKET_ONLY, ','))}">Order locket ✦</a></div>
       </div>
@@ -538,7 +538,7 @@ shop += f"""
         <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
         <tr><td>Certificate matched to photographs</td><td>Photos on request</td><td>Yes</td></tr>
         <tr><td>Guru's dakshina included</td><td>—</td><td>Yes</td></tr>
-        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / +{nrs(ACT_LOCKET_ADD)} (small bead, same price)</td></tr>
+        <tr><td>Bead only / bead in Panchadhatu locket (bead included)</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>{nrs(min(ACT.values()))} / {nrs(min(ACT.values())+ACT_LOCKET_ADD)} (small bead for the locket)</td></tr>
       </tbody></table></div>
   </div>
 </section>
