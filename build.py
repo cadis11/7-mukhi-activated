@@ -117,7 +117,7 @@ BEADS = {
             desc="Brahma, Vishnu and Mahesh in one seed. In tradition, Agni's fire within the three faces is said to burn accumulated karma — the unseen weight that blocks progress despite sincere effort.",
             chips=["Deity · Trimurti", "Planet · Mangal", "Element · Fire"],
             fits=["Feel stuck despite sincere effort", "Carry guilt, grief or past karma", "Have Mangal dosh or a weak Mars in the chart"],
-            img='<div class="photo-ph" role="img" aria-label="3 Mukhi Rudraksha photo coming soon" style="aspect-ratio:16/9;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a2616,#120D09);color:#D9A441;font-family:\'Rozha One\',serif;font-size:4rem">३<small style="display:block;font-family:Figtree,sans-serif;font-size:.7rem;letter-spacing:.2em;opacity:.7;text-align:center">PHOTO COMING SOON</small></div>',
+            img='<img src="assets/img/bead-3mukhi.jpg" alt="3 Mukhi Rudraksha bead" loading="lazy">',
             legend_t="Ancient Legend · The Trinity's Tear",
             legend="A devotee prayed a thousand years asking which of the three gods was supreme. On the final day, all three appeared at once — and wept together, for they had never been asked to stand as one. Where their three tears fell upon the same earth, a Rudraksha tree grew, and every bead upon it bore three faces."),
     6: dict(num="६", name="6 Mukhi", sub="6 Mukhi · Kartikeya · Venus", title="The Commander's Focus",
