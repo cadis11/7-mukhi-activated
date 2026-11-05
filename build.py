@@ -139,9 +139,9 @@ BEADS = {
 
 def pendant_fig():
     if os.path.exists(PENDANT_IMG):
-        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy">' % PENDANT_IMG
+        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" style="aspect-ratio:1/1;object-fit:cover;object-position:50%% 55%%">' % PENDANT_IMG
         if os.path.exists("assets/img/pendant-cord.jpg"):
-            out += '<img src="assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a black cord" loading="lazy" style="margin-top:1rem">'
+            out += '<img src="assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a red thread" loading="lazy" style="margin-top:1rem;aspect-ratio:1/1;object-fit:cover;object-position:50% 55%">'
         return '<figure class="photo">%s</figure>' % out
     return ""
 
