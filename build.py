@@ -131,7 +131,7 @@ BEADS = {
             desc="Ruled by Maa Mahalakshmi and governed by Shani. Seven faces are linked to the Saptamatrikas, the seven divine mothers, and the bead is traditionally worn for abundance and steadiness through Saturn's periods.",
             chips=["Deity · Mahalakshmi", "Planet · Shani", "Element · Earth"],
             fits=["Face financial hardship or blocked opportunities", "Are in Sade Sati or a Shani dasha", "Seek Mahalakshmi's grace and abundance"],
-            img='<img src="assets/img/bead-closeup.jpg" alt="Close-up of a Rudraksha bead showing its natural mukhi furrows" width="900" height="409" loading="lazy">',
+            img='<img src="assets/img/bead-7mukhi.jpg" alt="7 Mukhi Rudraksha bead" loading="lazy">',
             legend_t="Ancient Legend · Mahalakshmi's Gift",
             legend="A ruined merchant wept by the Ganga. Mahalakshmi came as an old woman and placed a seven-faced bead in his palm: \"This is not wealth. This is the door through which wealth flows — but first, your heart must be worthy of it.\" On the seventh dawn his fortunes turned. He returned to thank her; only rippling water remained, and the soft scent of lotus."),
 }
