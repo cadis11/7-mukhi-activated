@@ -140,10 +140,10 @@ BEADS = {
 
 def pendant_fig():
     if os.path.exists(PENDANT_IMG):
-        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" style="aspect-ratio:1/1;object-fit:cover;object-position:50%% 50%%">' % PENDANT_IMG
+        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" style="aspect-ratio:3/4;object-fit:cover;object-position:50%% 50%%">' % PENDANT_IMG
         if os.path.exists("assets/img/pendant-cord.jpg"):
-            out += '<img src="assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a red thread" loading="lazy" style="margin-top:1rem;aspect-ratio:1/1;object-fit:cover;object-position:50% 55%">'
-        return '<figure class="photo">%s</figure>' % out
+            out += '<img src="assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a red thread" loading="lazy" style="aspect-ratio:3/4;object-fit:cover;object-position:50% 50%">'
+        return '<figure class="photo" style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;background:none;border:0;padding:0">%s</figure>' % out
     return ""
 
 
@@ -341,7 +341,7 @@ home += f"""
       <div class="hero-stats">
         <div class="stat"><b>2L</b><span>Chants (activated)</span></div>
         <div class="stat"><b>54</b><span>Days of ritual</span></div>
-        <div class="stat"><b>20mm+</b><span>Activated beads</span></div>
+        <div class="stat"><b>20mm+</b><span>Usual activated size</span></div>
         <div class="stat"><b>Cert.</b><span>Activated &amp; rare beads</span></div>
       </div>
     </div>
@@ -684,7 +684,7 @@ story += f"""
   <div class="wrap">
     <div class="center"><span class="eyebrow reveal">The journey of a bead</span><h2 class="reveal">From Nepal to <em>your hands</em></h2></div>
     <div class="steps">
-      <div class="rite reveal"><span class="step">१</span><h3>Sourcing</h3><p>Beads are selected in Nepal and examined for genuine mukhi formation. Activated beads are 20mm+.</p></div>
+      <div class="rite reveal"><span class="step">१</span><h3>Sourcing</h3><p>Beads are selected in Nepal and examined for genuine mukhi formation. Activated beads are usually 20mm+; smaller ones are available for the locket.</p></div>
       <div class="rite reveal"><span class="step">२</span><h3>Certificate</h3><p>Activated and Gaurishankar beads are documented on their own certificate with photographs, so you can match the bead to the paper.</p></div>
       <div class="rite reveal"><span class="step">३</span><h3>Consecration</h3><p>Activated beads go through 54 days of ritual: 2 lakh chants, havan and Tantric invocation.</p></div>
       <div class="rite reveal"><span class="step">४</span><h3>Delivery</h3><p>Your bead is dispatched with care. Free within Nepal, and shipped worldwide at a cost we confirm in advance.</p></div>
