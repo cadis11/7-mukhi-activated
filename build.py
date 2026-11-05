@@ -169,7 +169,7 @@ def bead_card(k, kind="act", featured=False):
         attrs = (f' data-bead data-base="{base}" data-add="{add}" data-name="{b["name"]}" data-tier="{tier}"'
                  f' data-sub-plain="{plain}" data-sub-locket="{locket}"')
         ctl = f"""
-        <label class="addon"><input type="checkbox" data-pendant> {"Smaller size (under 20 mm) set in Panchadhatu Om locket" if tier == "Activated" else "With Panchadhatu Om locket"} (+{nrs(add)})</label>
+        <label class="addon"><input type="checkbox" data-pendant> {"Smaller bead (under 20 mm) set in Panchadhatu Om locket" if tier == "Activated" else "With Panchadhatu Om locket"} (+{nrs(add)})</label>
         <div class="price-row">
           <div class="price"><span data-price>{nrs(base)}</span><small data-pricesub>{plain}</small></div>
           <a class="btn btn-fire" data-order href="{wa('Namaste, I would like to order the %s Rudraksha — %s.' % (b['name'], tier))}">Order ✦</a>
@@ -250,7 +250,7 @@ FAQ_ITEMS = [
     ]),
     ("Energized vs activated", [
         ("What is the difference between energized and activated?", f"An energized bead is a genuine Nepal-sourced Rudraksha that has been energized and is ready to wear, from {nrs(min(ENG.values()))}. An activated bead goes through our Guru's full 54-day Vedic and Tantric consecration with 2 lakh chants and havan. It costs more because of the Guru's time, years of practice and dakshina."),
-        ("What is the locket option?", f"Your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear. An energized bead in the locket is {nrs(min(ENG_LOCKET.values()))}. Activated beads are normally 20 mm+, too large for the locket, so for the locket we activate a smaller bead (under 20 mm). The locket alone, without a bead, is {nrs(LOCKET_ONLY)}."),
+        ("What is the locket option?", f"Your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear. An energized bead in the locket is {nrs(min(ENG_LOCKET.values()))}. The activated price is the same for any size. Activated beads are usually 20 mm+, too large for the locket, so for the locket we activate a smaller bead (under 20 mm) at the same price, plus the locket. The locket alone, without a bead, is {nrs(LOCKET_ONLY)}."),
         ("What is Gaurishankar Rudraksha?", "Two beads joined naturally, traditionally seen as the union of Shiva (Shankar) and Parvati (Gauri). It is rare, so it is priced by size, from NRS 18,000."),
     ]),
     ("Authenticity", [
@@ -477,9 +477,20 @@ shop += f"""
         <span class="eyebrow">The locket</span>
         <h2 class="mt1">Panchadhatu Om <em>locket pendant</em></h2>
         <p>A Panchadhatu Om locket that opens to hold your Rudraksha, so the bead sits close to you and stays protected. It makes the bead ready to wear and ready to gift.</p>
-        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). Activated beads are normally 20 mm+, which is too large for the locket, so for the locket we activate a smaller bead (under 20 mm): +{nrs(ACT_LOCKET_ADD)}.</p>
+        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). The activated price is the same for any size, because it pays for the activation. Activated beads are usually 20 mm+, which is too large for the locket, so for the locket we activate a smaller bead (under 20 mm) at the same {nrs(min(ACT.values()))}, plus the locket: +{nrs(ACT_LOCKET_ADD)}.</p>
         <div class="price-row mt1"><div class="price"><span>{nrs(LOCKET_ONLY)}</span><small>Locket only, without a bead</small></div>
           <a class="btn btn-fire" href="{wa('Namaste, I would like to order the Panchadhatu Om locket only (without a bead) — NRS %s.' % format(LOCKET_ONLY, ','))}">Order locket ✦</a></div>
+      </div>
+    </div>
+  
+    <div class="cols-2 reveal" style="margin-top:3.5rem;align-items:center">
+      <figure class="photo" style="max-width:300px;margin:0 auto"><img src="assets/img/locket-step3.jpg" alt="Step 3: wear the Rudraksha locket every day, on a cord or a chain" loading="lazy"></figure>
+      <div class="prose" style="margin:0 auto">
+        <span class="eyebrow">How it works</span>
+        <h3 class="mt1" style="font-size:1.7rem">Three easy steps</h3>
+        <p><b>1. Choose</b> your bead (energized, or a smaller activated bead).</p>
+        <p><b>2. Place</b> the bead inside. The locket opens and closes to hold it.</p>
+        <p><b>3. Wear it every day</b>, on a cord or a chain.</p>
       </div>
     </div>
   </div>
@@ -528,7 +539,7 @@ shop += f"""
         <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
         <tr><td>Certificate matched to photographs</td><td>Photos on request</td><td>Yes</td></tr>
         <tr><td>Guru's dakshina included</td><td>—</td><td>Yes</td></tr>
-        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / +{nrs(ACT_LOCKET_ADD)} (smaller bead)</td></tr>
+        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / +{nrs(ACT_LOCKET_ADD)} (small bead, same price)</td></tr>
       </tbody></table></div>
   </div>
 </section>
