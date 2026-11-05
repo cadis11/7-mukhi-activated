@@ -128,6 +128,7 @@ nav{
   border-bottom:1px solid var(--line);
 }
 .card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.card-photo img.pack{object-fit:contain;background:#E9ECF1}
 .bead-card:hover .card-photo img{transform:scale(1.06)}
 .card-photo::after{
   content:"";position:absolute;inset:0;
@@ -411,7 +412,7 @@ footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem;background:rgba(18
 html{scroll-padding-top:5rem}
 .seg.three{grid-template-columns:repeat(3,1fr)}
 .sec-eng .bead-card.eng{background:linear-gradient(165deg,#241911,#1A120D 70%);padding-bottom:1.6rem}
-.sec-eng .bead-card.eng .card-photo{height:150px}
+.sec-eng .bead-card.eng .card-photo{height:190px}
 .sec-act{background:radial-gradient(70% 60% at 50% 0,rgba(217,164,65,.10),transparent 70%),rgba(28,20,16,.55);border-top:1px solid rgba(217,164,65,.35);border-bottom:1px solid rgba(217,164,65,.35)}
 .bead-card.premium{border-color:rgba(217,164,65,.55);box-shadow:0 20px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(217,164,65,.08)}
 .sec-eng .beads,.sec-act .beads{margin-top:2.6rem}

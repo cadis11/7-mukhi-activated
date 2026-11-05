@@ -85,8 +85,7 @@ def foot(scripts=""):
       <a href="collection.html">Shop</a><a href="gaurishankar.html">Gaurishankar</a><a href="about.html">Story</a><a href="history.html">Rudraksha</a><a href="authenticity.html">Authenticity</a><a href="learn.html">Learn</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="{IG}">Instagram</a>
     </div>
     <div>© 2026 Rudrakhchya · rudrakshapasal.com · Nepal<br>
-      <span style="font-size:.68rem;opacity:.7">Bead photos: <a href="https://commons.wikimedia.org/wiki/File:Rudraksha_sixfaces_by_sankar.jpg" style="text-decoration:underline">Sankar 1995</a> via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" style="text-decoration:underline">CC BY-SA</a>.
-      Descriptions of benefits reflect traditional belief and are not medical or financial advice.</span></div>
+      <span style="font-size:.68rem;opacity:.7">Descriptions of benefits reflect traditional belief and are not medical or financial advice.</span></div>
   </div>
 </footer>
 {banner}
@@ -118,14 +117,14 @@ BEADS = {
             desc="Brahma, Vishnu and Mahesh in one seed. In tradition, Agni's fire within the three faces is said to burn accumulated karma — the unseen weight that blocks progress despite sincere effort.",
             chips=["Deity · Trimurti", "Planet · Mangal", "Element · Fire"],
             fits=["Feel stuck despite sincere effort", "Carry guilt, grief or past karma", "Have Mangal dosh or a weak Mars in the chart"],
-            img='<img src="assets/img/bead-3mukhi.jpg" alt="3 Mukhi Rudraksha bead" loading="lazy">',
+            img='<img class="pack" style="background:#FAFAFA" src="assets/img/bead-3mukhi.jpg" alt="3 Mukhi Rudraksha bead" loading="lazy">',
             legend_t="Ancient Legend · The Trinity's Tear",
             legend="A devotee prayed a thousand years asking which of the three gods was supreme. On the final day, all three appeared at once — and wept together, for they had never been asked to stand as one. Where their three tears fell upon the same earth, a Rudraksha tree grew, and every bead upon it bore three faces."),
     6: dict(num="६", name="6 Mukhi", sub="6 Mukhi · Kartikeya · Venus", title="The Commander's Focus",
             desc="Ruled by Kartikeya, the six-faced commander of the divine armies. Traditionally worn to build willpower, focus and confidence, with Shukra's grace associated with charm and harmony.",
             chips=["Deity · Kartikeya", "Planet · Shukra", "Element · Earth"],
             fits=["Seek focus and discipline in studies or career", "Face competition or scattered willpower", "Have Shukra afflictions or seek confidence"],
-            img='<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rudraksha_sixfaces_by_sankar.jpg?width=800" alt="Six mukhi Rudraksha bead" loading="lazy">',
+            img='<img class="pack" style="background:#F0F1F5" src="assets/img/bead-6mukhi.jpg" alt="6 Mukhi Rudraksha bead" loading="lazy">',
             legend_t="Ancient Legend · Six Mothers, One Son",
             legend="When Shiva's radiance fell into the reeds, six sparks became six infants, each cradled by one of the Krittika mothers. Parvati gathered them in one embrace — and they became a single child with six faces: Shanmukha, who would command the armies of the gods."),
     7: dict(num="७", name="7 Mukhi", sub="7 Mukhi · Mahalakshmi · Saturn", title="The Grace That Opens",
