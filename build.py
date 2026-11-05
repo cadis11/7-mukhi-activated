@@ -451,12 +451,12 @@ shop = head("Shop Rudraksha | Energized, Activated | Rudrakhchya",
 shop += page_hero("The Collection", "Choose your <em>path</em>",
                   "Energized beads for everyday wear, Guru-activated beads for those who want the full consecration, and the rare Gaurishankar. Tap a path to jump to it.")
 shop += f"""
-<div class="wrap"><nav class="jump" aria-label="Sections">
+<div class="wrap"><div class="jump" role="navigation" aria-label="Sections">
   <a href="#energized">Energized · from {nrs(min(ENG.values()))}</a>
   <a href="#activated">Activated · from {nrs(min(ACT.values()))}</a>
   <a href="#gaurishankar">Gaurishankar · from {GAURI[0][1]}</a>
   <a href="#locket">Locket pendant</a>
-</nav></div>
+</div></div>
 
 <section id="energized" class="sec-eng">
   <div class="wrap">
