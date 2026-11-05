@@ -35,13 +35,13 @@
     const price=card.querySelector('[data-price]'),sub=card.querySelector('[data-pricesub]'),
           btn=card.querySelector('[data-order]'),pend=card.querySelector('[data-pendant]');
     function upd(){
-      const withP=pend.checked,total=base+(withP?add:0);
+      const withP=pend&&pend.checked,total=base+(withP?add:0);
       price.textContent=fmt(total);
       sub.textContent=withP?card.dataset.subLocket:card.dataset.subPlain;
       const msg='Namaste, I would like to order the '+name+' Rudraksha — '+tier+(withP?' in a Panchadhatu Om locket':'')+' ('+fmt(total)+').';
       btn.href='https://wa.me/9779823783486?text='+encodeURIComponent(msg);
     }
-    pend.addEventListener('change',upd);
+    if(pend)pend.addEventListener('change',upd);
     upd();
   });
   /* gaurishankar size picker */

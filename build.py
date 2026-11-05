@@ -7,7 +7,6 @@ import html, urllib.parse, os
 ACT = {3: 10000, 6: 10000, 7: 10000}      # activated (consecrated) - from the live site
 ENG = {3: 1500, 6: 1500, 7: 1500}          # energized bead only
 ENG_LOCKET = {3: 2500, 6: 2500, 7: 2500}   # energized bead in Panchadhatu Om locket
-ACT_PENDANT = 3000                         # activated bead + locket add-on (CONFIRM)
 GAURI = [("Standard", "NRS 18,000"), ("Above 36 mm", "NRS 35,000 – 40,000"), ("Above 40 mm", "NRS 50,000+")]
 PENDANT_IMG = "assets/img/pendant.jpg"     # drop the pendant photo here and rebuild
 BUNDLE_ACT = {"3 + 7": 18000, "3 + 6 + 7": 26000}   # activated bundles - from live site
@@ -139,7 +138,7 @@ BEADS = {
 
 def pendant_fig():
     if os.path.exists(PENDANT_IMG):
-        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" style="aspect-ratio:1/1;object-fit:cover;object-position:50%% 55%%">' % PENDANT_IMG
+        out = '<img src="%s" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" style="aspect-ratio:1/1;object-fit:cover;object-position:50%% 50%%">' % PENDANT_IMG
         if os.path.exists("assets/img/pendant-cord.jpg"):
             out += '<img src="assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a red thread" loading="lazy" style="margin-top:1rem;aspect-ratio:1/1;object-fit:cover;object-position:50% 55%">'
         return '<figure class="photo">%s</figure>' % out
@@ -163,12 +162,12 @@ def bead_card(k, kind="act", featured=False):
             base, add, tier, cls = ENG[k], ENG_LOCKET[k] - ENG[k], "Energized", "bead-card eng"
             plain, locket = "Energized bead only", "Energized bead in Panchadhatu locket"
         else:
-            base, add, tier, cls = ACT[k], ACT_PENDANT, "Activated", "bead-card premium"
-            plain, locket = "Consecrated · Guru's dakshina included", "Consecrated bead in Panchadhatu locket"
+            base, add, tier, cls = ACT[k], 0, "Activated", "bead-card premium"
+            plain, locket = "Consecrated · Guru's dakshina included", ""
         attrs = (f' data-bead data-base="{base}" data-add="{add}" data-name="{b["name"]}" data-tier="{tier}"'
                  f' data-sub-plain="{plain}" data-sub-locket="{locket}"')
         ctl = f"""
-        <label class="addon"><input type="checkbox" data-pendant> With Panchadhatu Om locket (+{nrs(add)})</label>
+        {('<label class="addon"><input type="checkbox" data-pendant> With Panchadhatu Om locket (+%s)</label>' % nrs(add)) if add else '<p class="addon" style="opacity:.75;font-size:.82rem">Activated beads are 20 mm+ and are worn on a cord or mala, not in the locket.</p>'}
         <div class="price-row">
           <div class="price"><span data-price>{nrs(base)}</span><small data-pricesub>{plain}</small></div>
           <a class="btn btn-fire" data-order href="{wa('Namaste, I would like to order the %s Rudraksha — %s.' % (b['name'], tier))}">Order ✦</a>
@@ -249,7 +248,7 @@ FAQ_ITEMS = [
     ]),
     ("Energized vs activated", [
         ("What is the difference between energized and activated?", f"An energized bead is a genuine Nepal-sourced Rudraksha that has been energized and is ready to wear, from {nrs(min(ENG.values()))}. An activated bead goes through our Guru's full 54-day Vedic and Tantric consecration with 2 lakh chants and havan. It costs more because of the Guru's time, years of practice and dakshina."),
-        ("What is the locket option?", f"Your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear. An energized bead in the locket is {nrs(min(ENG_LOCKET.values()))}."),
+        ("What is the locket option?", f"Your bead comes set in a Panchadhatu Om locket pendant that opens to hold it, so it is ready to wear. An energized bead in the locket is {nrs(min(ENG_LOCKET.values()))}. The locket is only for energized beads: activated beads are 20 mm+ and too large to fit."),
         ("What is Gaurishankar Rudraksha?", "Two beads joined naturally, traditionally seen as the union of Shiva (Shankar) and Parvati (Gauri). It is rare, so it is priced by size, from NRS 18,000."),
     ]),
     ("Authenticity", [
@@ -367,7 +366,7 @@ home += f"""
       <div class="pillar reveal"><span class="glyph">🏔️</span><h3>Nepal Sourcing</h3><p>Beads come directly from Nepal, hand-examined for genuine mukhi formation before anything else happens.</p></div>
       <div class="pillar reveal"><span class="glyph">📜</span><h3>Proof for Rare Beads</h3><p>Activated and Gaurishankar beads come with a certificate matched to photographs of that exact bead. Ask for photos of any bead first.</p></div>
       <div class="pillar reveal"><span class="glyph">🔱</span><h3>Vedic &amp; Tantric Ritual</h3><p>Activated beads receive prana pratishtha, havan, 2 lakh japa and Tantric invocation from our Guru over 54 days.</p></div>
-      <div class="pillar reveal"><span class="glyph">🌺</span><h3>Your Choice</h3><p>Energized from NRS 1,500, fully activated, or set in a Panchadhatu locket. You pay for the depth you want.</p></div>
+      <div class="pillar reveal"><span class="glyph">🌺</span><h3>Your Choice</h3><p>Energized from NRS 1,500 (or in a Panchadhatu locket), or fully activated. You pay for the depth you want.</p></div>
     </div>
   </div>
 </section>
@@ -476,7 +475,7 @@ shop += f"""
         <span class="eyebrow">The locket</span>
         <h2 class="mt1">Panchadhatu Om <em>locket pendant</em></h2>
         <p>A Panchadhatu Om locket that opens to hold your Rudraksha, so the bead sits close to you and stays protected. It makes the bead ready to wear and ready to gift.</p>
-        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). Activated beads can be set in the locket too: +{nrs(ACT_PENDANT)}.</p>
+        <p><b>Energized bead in the locket: {nrs(min(ENG_LOCKET.values()))}</b> (bead alone {nrs(min(ENG.values()))}). The locket is made for the energized beads. Activated beads are 20 mm+ and are too large for it, so they are worn on a cord or mala.</p>
       </div>
     </div>
   </div>
@@ -525,7 +524,7 @@ shop += f"""
         <tr><td>2 lakh mantra chants + havan</td><td>No</td><td>Yes</td></tr>
         <tr><td>Certificate matched to photographs</td><td>Photos on request</td><td>Yes</td></tr>
         <tr><td>Guru's dakshina included</td><td>—</td><td>Yes</td></tr>
-        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / +{nrs(ACT_PENDANT)}</td></tr>
+        <tr><td>Bead / in Panchadhatu locket</td><td>{nrs(min(ENG.values()))} / {nrs(min(ENG_LOCKET.values()))}</td><td>from {nrs(min(ACT.values()))} / not offered (20 mm+)</td></tr>
       </tbody></table></div>
   </div>
 </section>
