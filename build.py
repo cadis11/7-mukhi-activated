@@ -124,7 +124,7 @@ BEADS = {
             desc="Ruled by Kartikeya, the six-faced commander of the divine armies. Traditionally worn to build willpower, focus and confidence, with Shukra's grace associated with charm and harmony.",
             chips=["Deity · Kartikeya", "Planet · Shukra", "Element · Earth"],
             fits=["Seek focus and discipline in studies or career", "Face competition or scattered willpower", "Have Shukra afflictions or seek confidence"],
-            img='<img class="pack" style="background:#F0F1F5" src="assets/img/bead-6mukhi.jpg" alt="6 Mukhi Rudraksha bead" loading="lazy">',
+            img='<img class="pack" style="background:#FFFFFF" src="assets/img/bead-6mukhi.jpg" alt="6 Mukhi Rudraksha bead" loading="lazy">',
             legend_t="Ancient Legend · Six Mothers, One Son",
             legend="When Shiva's radiance fell into the reeds, six sparks became six infants, each cradled by one of the Krittika mothers. Parvati gathered them in one embrace — and they became a single child with six faces: Shanmukha, who would command the armies of the gods."),
     7: dict(num="७", name="7 Mukhi", sub="7 Mukhi · Mahalakshmi · Saturn", title="The Grace That Opens",
