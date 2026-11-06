@@ -402,7 +402,7 @@ home += f"""
         <p class="lead mt1">Rudraksha is widely imitated. That is why activated and Gaurishankar beads carry a certificate, why we share close-up photographs of any bead on request, and why rare beads can come with an X-ray report.</p>
         <p class="mt2"><a class="btn btn-fire" href="authenticity.html">How we verify a bead ✦</a></p>
       </div>
-      <div class="photo reveal"><img src="assets/img/bead-closeup.jpg" alt="Natural mukhi furrows on a Rudraksha bead" width="900" height="409" loading="lazy"></div>
+      <div class="photo reveal"><img src="assets/img/bead-7mukhi.jpg" alt="A real 7 Mukhi Rudraksha bead showing its natural furrows" width="900" height="900" loading="lazy" style="aspect-ratio:4/3;object-fit:cover"></div>
     </div>
   </div>
 </section>
@@ -585,7 +585,7 @@ hist += f"""
         <p>The trees grow in the Himalayan foothills and across parts of South and Southeast Asia. Nepal is one of the places traditionally known for Rudraksha, which is why we source there.</p>
         <p>The ridges running from one end of the bead to the other are called <b>mukhi</b>, meaning "faces". Texts commonly describe beads from one to fourteen faces, and the trade lists higher counts too. Each mukhi is associated in tradition with a particular deity and planet.</p>
       </div>
-      <div class="photo reveal"><img src="assets/img/bead-closeup.jpg" alt="Natural mukhi furrows on a Rudraksha bead" width="900" height="409" loading="lazy"></div>
+      <div class="photo reveal"><img class="pack" src="assets/img/bead-6mukhi.jpg" alt="A 6 Mukhi Rudraksha bead: six natural furrows run from one end to the other" width="900" height="900" loading="lazy" style="aspect-ratio:4/3;object-fit:contain;background:#FFFFFF"></div>
     </div>
   </div>
 </section>
