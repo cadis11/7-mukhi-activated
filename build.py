@@ -349,14 +349,7 @@ home += f"""
       <figure class="hero-photo" id="heroPhoto">
         <img src="assets/img/hero-mala.jpg" alt="Rudraksha bead bracelet on dark wood in warm light" width="1200" height="1125" fetchpriority="high" loading="eager">
       </figure>
-      <div class="locket3d" id="locket3d" title="Move over it to turn the locket">
-        <div class="locket-glow"></div>
-        <div class="locket-tilt" id="locketTilt">
-          <img src="assets/img/locket-cutout.webp" alt="Panchadhatu Om locket pendant" width="660" height="900" loading="eager">
-          <span class="locket-shine" aria-hidden="true"></span>
-        </div>
-      </div>
-      <span class="bead-caption">Panchadhatu Om locket · move over it to turn it</span>
+      <span class="bead-caption">Hand-selected Nepali Rudraksha</span>
     </div>
   </div>
 </header>
@@ -447,7 +440,7 @@ home += f"""
 </section>
 {cta_final()}
 """
-home += foot('<script src="locket3d.js"></script>')
+home += foot('')
 pages["index.html"] = home
 
 # ================================================================ SHOP
