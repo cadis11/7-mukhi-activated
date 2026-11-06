@@ -63,8 +63,14 @@
       <figure class="hero-photo" id="heroPhoto">
         <img src="assets/img/hero-mala.jpg" alt="Rudraksha bead bracelet on dark wood in warm light" width="1200" height="1125" fetchpriority="high" loading="eager">
       </figure>
-      <div class="bead-medal" title="Turn the bead with your cursor"><canvas id="beadCanvas" aria-label="Rotating 3D Rudraksha bead"></canvas></div>
-      <span class="bead-caption">Authentic Nepali Rudraksha · live 3D bead</span>
+      <div class="locket3d" id="locket3d" title="Move over it to turn the locket">
+        <div class="locket-glow"></div>
+        <div class="locket-tilt" id="locketTilt">
+          <img src="assets/img/locket-cutout.webp" alt="Panchadhatu Om locket pendant" width="660" height="900" loading="eager">
+          <span class="locket-shine" aria-hidden="true"></span>
+        </div>
+      </div>
+      <span class="bead-caption">Panchadhatu Om locket · move over it to turn it</span>
     </div>
   </div>
 </header>
@@ -267,7 +273,6 @@
 </footer>
 
 <script src="site.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="bead3d.js"></script>
+<script src="locket3d.js"></script>
 </body>
 </html>
