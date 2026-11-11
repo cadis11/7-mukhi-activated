@@ -77,6 +77,18 @@ footer a{color:var(--gold)}
 .sticky{position:fixed;left:0;right:0;bottom:0;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(18,13,9,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);z-index:20;display:flex;gap:.7rem;align-items:center;justify-content:center}
 .sticky .btn{flex:1;max-width:420px;text-align:center;padding:.85rem 1rem}
 @media(min-width:860px){.sticky{display:none}footer{padding-bottom:2rem}}
+
+.pend{display:grid;gap:2rem;align-items:center}
+@media(min-width:860px){.pend{grid-template-columns:1fr 1fr}}
+.pend .pics{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.pend .pics img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.opt{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.6rem 1rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);margin-bottom:.8rem}
+.opt .btn{grid-column:1/-1;text-align:center}
+@media(min-width:520px){.opt{grid-template-columns:1fr auto auto}.opt .btn{grid-column:auto}}
+.opt b{display:block;font-weight:600}
+.opt small{color:var(--ash-dim)}
+.opt .p{color:var(--gold);font-weight:600;font-size:1.1rem;white-space:nowrap}
+.opt .btn{padding:.6rem 1.1rem;font-size:.9rem}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
@@ -129,7 +141,26 @@ footer a{color:var(--gold)}
           <a class="btn" href="https://wa.me/9779823783486?text=Namaste%2C%20I%20would%20like%20to%20order%207%20Mukhi%20Rudraksha.%20Please%20tell%20me%20about%20energized%20and%20activated." rel="noopener">Order 7 Mukhi</a></div>
       </article>
     </div>
-    <p class="note" style="margin-top:1.4rem">Want it as a pendant? An energized bead in our Panchadhatu Om locket is NRS 2,500. The locket alone is NRS 1,150. Rare Gaurishankar from NRS 18,000, priced by size.</p>
+    <p class="note" style="margin-top:1.4rem">Also available: rare Gaurishankar from NRS 18,000, priced by size. Ask us on WhatsApp.</p>
+  </div>
+</section>
+
+
+<section id="pendant">
+  <div class="wrap">
+    <h2>Wear it as a <em>pendant</em></h2>
+    <div class="pend">
+      <div class="pics">
+        <img src="../assets/img/pendant.jpg" alt="Panchadhatu Om locket pendant that opens to hold a Rudraksha bead" loading="lazy" width="900" height="1000">
+        <img src="../assets/img/pendant-cord.jpg" alt="Panchadhatu Om locket on a red thread" loading="lazy" width="900" height="1000">
+      </div>
+      <div>
+        <p style="color:var(--ash-dim);margin-bottom:1.2rem">Our Panchadhatu Om locket opens to hold your bead, so you can wear it every day on a cord or chain.</p>
+        <div class="opt"><div><b>Energized bead in locket</b><small>Bead included</small></div><span class="p">NRS 2,500</span><a class="btn" href="https://wa.me/9779823783486?text=Namaste%2C%20I%20would%20like%20to%20order%20an%20energized%20Rudraksha%20in%20the%20Panchadhatu%20Om%20locket." rel="noopener">Order</a></div>
+        <div class="opt"><div><b>Activated bead in locket</b><small>Smaller bead (under 20 mm), bead included</small></div><span class="p">NRS 11,000</span><a class="btn" href="https://wa.me/9779823783486?text=Namaste%2C%20I%20would%20like%20to%20order%20an%20activated%20Rudraksha%20in%20the%20Panchadhatu%20Om%20locket." rel="noopener">Order</a></div>
+        <div class="opt"><div><b>Locket only</b><small>Without a bead</small></div><span class="p">NRS 1,150</span><a class="btn" href="https://wa.me/9779823783486?text=Namaste%2C%20I%20would%20like%20to%20order%20the%20Panchadhatu%20Om%20locket%20only%20(without%20a%20bead)." rel="noopener">Order</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
